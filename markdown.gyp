@@ -11,6 +11,13 @@
         'markdown_lib.c',
         'GLibFacade.c',
       ],
+      'conditions': [
+        ['OS=="win"', {
+          'include_dirs': [
+            'win',
+          ],
+        }],
+      ],
     },
   ],
 
