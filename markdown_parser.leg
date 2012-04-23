@@ -639,10 +639,13 @@ ReferenceLinkDouble =  a:Label < Spnl > !"[]" b:Label
                                free_element_list(b);
                            } else if ( !extension(EXT_COMPATIBILITY) && 
                             find_label(&match, b->children)) {
-                                GString *text = g_string_new("");
+                                GString *text;
+                                char *lab;
+                                GString *label;
+                                text = g_string_new("");
                                 print_raw_element_list(text, b->children);
-                                char *lab = label_from_string(text->str,0);
-                                GString *label = g_string_new(lab);
+                                lab = label_from_string(text->str,0);
+                                label = g_string_new(lab);
                                 g_string_prepend(label,"#");
                                 $$ = mk_link(a->children, label->str, "", NULL, lab);
                                 free(lab);
@@ -665,10 +668,13 @@ ReferenceLinkSingle =  a:Label < (Spnl "[]")? >
                                free(a);
                            } else if ( !extension(EXT_COMPATIBILITY) && 
                             find_label(&match, a->children)) {
-                                GString *text = g_string_new("");
+                                GString *text;
+                                char *lab;
+                                GString *label;
+                                text = g_string_new("");
                                 print_raw_element_list(text, a->children);
-                                char *lab = label_from_string(text->str,0);
-                                GString *label = g_string_new(lab);
+                                lab = label_from_string(text->str,0);
+                                label = g_string_new(lab);
                                 g_string_prepend(label,"#");
                                 $$ = mk_link(a->children, label->str, "", NULL, lab);
                                 g_string_free(text, TRUE);
@@ -994,6 +1000,8 @@ CitationReference = CitationReferenceDouble | CitationReferenceSingle
 
 CitationReferenceDouble = !"[]" b:Label < Spnl > !"[]" ref:RawCitationReference
                 {   element *match;
+                    GString *label;
+                    char *lab;
                     if (find_note(&match, ref->contents.str)) {
                         /* This citation is specified within the document */
                         $$ = mk_element(CITATION);
@@ -1014,8 +1022,7 @@ CitationReferenceDouble = !"[]" b:Label < Spnl > !"[]" ref:RawCitationReference
                         $$->children = b;
                         free(s);
                     }
-                    GString *label = g_string_new("");
-                    char *lab;
+                    label = g_string_new("");
                     print_raw_element_list(label, b->children);
                     lab = label_from_string(label->str,0);
                     if (strcmp(lab,"notcited") == 0 ) {
@@ -1121,8 +1128,9 @@ Definition = (a:StartList b:StartList
                         { a = cons(mk_str("\n"),a);}
                 )*
              )
-            { if (b != NULL) { a = cons(b,a);}
-                element *raw = mk_str_from_list(a, false);
+            { element *raw;
+              if (b != NULL) { a = cons(b,a);}
+                raw = mk_str_from_list(a, false);
                 raw->key = RAW;
                 $$ = mk_list(DEFINITION,raw);
             }
