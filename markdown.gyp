@@ -42,6 +42,7 @@
       'target_defaults': {
         'defines': [
           'WIN32',
+          '__WIN32',
           '_WINDOWS',
         ],
         'msvs_settings': {
