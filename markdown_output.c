@@ -421,10 +421,10 @@ static void print_html_element(GString *out, element *elt, bool obfuscate) {
          * is a note block that has been incorporated into the notes list */
         if (elt->contents.str == 0) {
             if ( (elt->children->contents.str == 0) ){
+                char buf[5];
                 /* The referenced note has not been used before */
                 add_endnote(elt->children);
                 ++notenumber;
-                char buf[5];
                 sprintf(buf,"%d",notenumber);
                 /* Assign footnote number for future use */
                 elt->children->contents.str = strdup(buf);
@@ -484,12 +484,12 @@ static void print_html_element(GString *out, element *elt, bool obfuscate) {
             /* reference specified within the MMD document,
                so will output as footnote */
             if (elt->children->contents.str == NULL) {
+                char buf[5];
                 /* Work not previously cited in this document,
                    so create "endnote" */
                 elt->children->key = CITATION;
                 add_endnote(elt->children);
                 ++notenumber;
-                char buf[5];
                 sprintf(buf,"%d",notenumber);
                 /* Store the number for future reference */
                 elt->children->contents.str = strdup(buf);
@@ -715,8 +715,9 @@ static void print_html_endnotes(GString *out) {
         counter++;
         pad(out, 1);
         if (note_elt->key == CITATION) {
+            element *temp;
             g_string_append_printf(out, "<li id=\"fn:%s\" class=\"citation\"><span class=\"citekey\" style=\"display:none\">", note_elt->contents.str);
-            element *temp = note_elt;
+            temp = note_elt;
             while ( temp != NULL ) {
                 if (temp->key == NOTELABEL)
                     print_html_string(out, temp->contents.str, 0);
@@ -1190,13 +1191,14 @@ static void print_latex_element(GString *out, element *elt) {
         } else {
             /* This citation was specified in the document itself */
             if (elt->key == NOCITATION ) {
-                g_string_append_printf(out, "~\\nocite{%s}", elt->contents.str);
                 element *temp;
+                g_string_append_printf(out, "~\\nocite{%s}", elt->contents.str);
                 temp = elt->children;
                 elt->children = temp->next;
                 free_element(temp);
             } else {
                 if ((elt->children != NULL) && (elt->children->key == LOCATOR)){
+                    element *temp;
                     if (strcmp(&elt->contents.str[strlen(elt->contents.str) - 1],";") == 0) {
                         g_string_append_printf(out, " \\citet[");
                         elt->contents.str[strlen(elt->contents.str) - 1] = '\0';
@@ -1205,7 +1207,6 @@ static void print_latex_element(GString *out, element *elt) {
                     }
                     print_latex_element(out,elt->children);
                     g_string_append_printf(out, "]{%s}",elt->contents.str);
-                    element *temp;
                     temp = elt->children;
                     elt->children = temp->next;
                     free_element(temp);
@@ -2023,9 +2024,9 @@ void print_odf_element(GString *out, element *elt) {
             /* reference specified within the MMD document,
                so will output as footnote */
             if (elt->children->contents.str == NULL) {
+                char buf[5];
                 /* First use of this citation */
                 ++notenumber;
-                char buf[5];
                 sprintf(buf, "%d",notenumber);
                 /* Store the number for future reference */
                 elt->children->contents.str = strdup(buf);
@@ -2067,15 +2068,17 @@ void print_odf_element(GString *out, element *elt) {
         odf_type = old_type;
         break;
     case METADATA:
+      {
+        element *header;
         g_string_append_printf(out, "<office:meta>\n");
         print_odf_element_list(out, elt->children);
         g_string_append_printf(out, "</office:meta>\n");
-        element *header;
         header = metadata_for_key("odfheader",elt);
         if (header != NULL) {
             print_raw_element(out,header->children);
         }
         break;
+      }
     case METAKEY:
         if (strcmp(elt->contents.str, "title") == 0) {
             g_string_append_printf(out, "<dc:title>");
@@ -2502,9 +2505,9 @@ static int find_latex_mode(int format, element *list) {
 
 /* find specified metadata key, if present */
 element * metadata_for_key(char *key, element *list) {
+    char *label;
     element *step = NULL;
     step = list;
-    char *label;
     
     label = label_from_string(key,0);
     
@@ -2531,10 +2534,10 @@ element * metadata_for_key(char *key, element *list) {
 
 /* find specified metadata key, if present */
 char * metavalue_for_key(char *key, element *list) {
-    element *step = NULL;
-    step = list;
     char *label;
     char *result;
+    element *step = NULL;
+    step = list;
     
     label = label_from_string(key,0);
     
@@ -2567,9 +2570,9 @@ char * metavalue_for_key(char *key, element *list) {
 
 /* find attribute, if present */
 element * element_for_attribute(char *querystring, element *list) {
+    char *query;
     element *step = NULL;
     step = list;
-    char *query;
     query = label_from_string(querystring,0);
     
     while (step != NULL) {
@@ -2813,7 +2816,7 @@ void print_odf_body_element_list(GString *out, element *list) {
 static void bogus_function()
 {
 	static char* bogus;
-	bogus = charbuf;
 	static element* bogus2;
+	bogus = charbuf;
 	bogus2 = parse_result;
 }
