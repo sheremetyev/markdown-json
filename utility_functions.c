@@ -35,8 +35,10 @@ static element *reverse(element *list) {
 
 /* append_list - add element to end of list */
 static void append_list(element *new, element *list) {
+    element *step;
+
     assert(new != NULL);
-    element *step = list;
+    step = list;
     
     while (step->next != NULL) {
         step = step->next;
@@ -322,12 +324,13 @@ static char *label_from_string(char *str, bool obfuscate) {
 /* find_label - return true if header, table, etc is found matching label.
  * 'link' is modified with the matching url and title. */
 static bool find_label(link *result, element *label) {
+    GString *query;
     char *lab;
     element *cur = labels;  /* pointer to walk up list of references */
     GString *text = g_string_new("");
     print_raw_element_list(text, label);
     lab = label_from_string(text->str,0);
-    GString *query = g_string_new(lab);
+    query = g_string_new(lab);
     free(lab);
     g_string_free(text, true);
 
