@@ -53,7 +53,7 @@ void version(const char *progname)
          COPYRIGHT);
 }
 
-#define MD_ARGUMENT_FLAG(name, flagChar, flagValue, outPointer, desc, argPlaceholder)	{ name, no_argument, outPointer, outPointer ? flagValue : flagChar }
+#define MD_ARGUMENT_FLAG(name, flagChar, flagValue, outPointer, desc, argPlaceholder)	{ name, no_argument, outPointer, flagValue }
 #define MD_ARGUMENT_STRING(name, flagChar, outPointer, desc, argPlaceholder)	{ name, required_argument, NULL, flagChar }
 
 /* With getopt we don't get the same fancy automatic usage (I don't think?) so for now we're faking it ... */
