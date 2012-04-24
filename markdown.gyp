@@ -6,10 +6,22 @@
       'msvs_guid': '5B618686-D628-45A8-9E12-B8C2FAA08C71',
       'sources': [
         'markdown.c',
-#        'markdown_parser.c',
+        'markdown_parser.c',
         'markdown_output.c',
         'markdown_lib.c',
         'GLibFacade.c',
+      ],
+      'actions': [
+        {
+          'action_name': 'leg',
+          'inputs': [
+            'markdown_parser.leg',
+          ],
+          'outputs': [
+            'markdown_parser.c',
+          ],
+          'action': ['peg/leg', '-o <@(_outputs)'],
+        },
       ],
       'conditions': [
         ['OS=="win"', {
