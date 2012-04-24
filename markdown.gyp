@@ -16,6 +16,10 @@
           'include_dirs': [
             'win',
           ],
+          'sources': [
+            'win/getopt.c',
+            'win/getopt_long.c',
+          ],
         }],
       ],
     },
