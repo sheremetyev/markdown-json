@@ -1,7 +1,11 @@
 /* utility_functions.c - List manipulation functions, element
  * constructors, and macro definitions for leg markdown parser. */
 
+#ifndef _WIN32
 extern int strcasecmp(const char *string1, const char *string2);
+#else
+#define strcasecmp _stricmp
+#endif
 
 static char *label_from_string(char *str, bool obfuscate) ;
 static void localize_typography(GString *out, int character, int language, int output);
