@@ -57,12 +57,15 @@ int asprintf( char **sptr, char *fmt, ... )
 
 GString* g_string_new(char *startingString)
 {
+  size_t startingBufferSize;
+  size_t startingStringSize;
+
 	GString* newString = malloc(sizeof(GString));
 
 	if (startingString == NULL) startingString = "";
 
-	size_t startingBufferSize = kStringBufferStartingSize;
-	size_t startingStringSize = strlen(startingString);
+	startingBufferSize = kStringBufferStartingSize;
+	startingStringSize = strlen(startingString);
 	while (startingBufferSize < (startingStringSize + 1))
 	{
 		startingBufferSize *= kStringBufferGrowthMultiplier;
@@ -137,10 +140,12 @@ void g_string_append_c(GString* baseString, char appendedCharacter)
 
 void g_string_append_printf(GString* baseString, char* format, ...)
 {
-	va_list args;
+  char* formattedString;
+  
+  va_list args;
 	va_start(args, format);
 	
-	char* formattedString = NULL;
+	formattedString = NULL;
 	vasprintf(&formattedString, format, args);
 	if (formattedString != NULL)
 	{
