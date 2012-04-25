@@ -9,3 +9,4 @@ xcuserdata/
 *.user
 /markdown_parser.c
 /markdown
+/*.exe
