@@ -1,0 +1,267 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		53E8C3D0F9AC551D250BA9B4 /* markdown Support */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 190C992175741DB3B010C04D /* Build configuration list for PBXAggregateTarget "markdown Support" */;
+			buildPhases = (
+				0EE768F16B8ADF72E626EA06 /* Action "leg" */,
+			);
+			dependencies = (
+			);
+			name = "markdown Support";
+			productName = "markdown Support";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		04D1C598B31D288548EA00BD /* markdown_output.c in Sources */ = {isa = PBXBuildFile; fileRef = 9706C1688236B95A57E18BC0 /* markdown_output.c */; };
+		BAE6C4C038EB1E19E35CB2D2 /* markdown_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 03BC1F116EAF48EAAAC569DF /* markdown_lib.c */; };
+		C03EE645CF71BDF9ED813A24 /* markdown.c in Sources */ = {isa = PBXBuildFile; fileRef = 7067F330A1806C5707834C1B /* markdown.c */; };
+		D8265FDD9C38D152C5A75FE8 /* GLibFacade.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C2B4EAF419C2650D2C427F7 /* GLibFacade.c */; };
+		E8EBCEE599B7F1BDE26682A5 /* markdown_parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 54FB4132A7ABD2F73FF236A5 /* markdown_parser.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B59DB1A71133429BE3FA0356 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A30C3DD0827F8072609728D1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53E8C3D0F9AC551D250BA9B4;
+			remoteInfo = "markdown Support";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03BC1F116EAF48EAAAC569DF /* markdown_lib.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = markdown_lib.c; sourceTree = "<group>"; };
+		2C2B4EAF419C2650D2C427F7 /* GLibFacade.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = GLibFacade.c; sourceTree = "<group>"; };
+		54FB4132A7ABD2F73FF236A5 /* markdown_parser.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = markdown_parser.c; sourceTree = "<group>"; };
+		7067F330A1806C5707834C1B /* markdown.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = markdown.c; sourceTree = "<group>"; };
+		72B28FA762AB539844F29697 /* markdown_parser.leg */ = {isa = PBXFileReference; lastKnownFileType = text; path = markdown_parser.leg; sourceTree = "<group>"; };
+		814578E51DF5C0049131A19E /* markdown.gyp */ = {isa = PBXFileReference; lastKnownFileType = text; path = markdown.gyp; sourceTree = "<group>"; };
+		9706C1688236B95A57E18BC0 /* markdown_output.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = markdown_output.c; sourceTree = "<group>"; };
+		CAEEFB2748635519BF2327D9 /* markdown */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = markdown; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		48B2D6ED633BF588DD50CC5B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2B2FC3116D9C67AD82CDF3FF /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				2C2B4EAF419C2650D2C427F7 /* GLibFacade.c */,
+				7067F330A1806C5707834C1B /* markdown.c */,
+				03BC1F116EAF48EAAAC569DF /* markdown_lib.c */,
+				9706C1688236B95A57E18BC0 /* markdown_output.c */,
+				54FB4132A7ABD2F73FF236A5 /* markdown_parser.c */,
+				72B28FA762AB539844F29697 /* markdown_parser.leg */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		5ADAB51F71C5F5AE716DEB00 = {
+			isa = PBXGroup;
+			children = (
+				2B2FC3116D9C67AD82CDF3FF /* Source */,
+				703B26877828B4A889FA3C5A /* Products */,
+				5DF8333EC14436D0495ED692 /* Build */,
+			);
+			sourceTree = "<group>";
+		};
+		5DF8333EC14436D0495ED692 /* Build */ = {
+			isa = PBXGroup;
+			children = (
+				814578E51DF5C0049131A19E /* markdown.gyp */,
+			);
+			name = Build;
+			sourceTree = "<group>";
+		};
+		703B26877828B4A889FA3C5A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CAEEFB2748635519BF2327D9 /* markdown */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9D0FB31ABEA34B5BFBD3D211 /* markdown */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1BE4510C4674785C09EF186C /* Build configuration list for PBXNativeTarget "markdown" */;
+			buildPhases = (
+				066C69F9CD31848DCA5391BB /* Sources */,
+				48B2D6ED633BF588DD50CC5B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8C9EB84BCA3063201227AB20 /* PBXTargetDependency */,
+			);
+			name = markdown;
+			productName = markdown;
+			productReference = CAEEFB2748635519BF2327D9 /* markdown */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A30C3DD0827F8072609728D1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+			};
+			buildConfigurationList = 9F9EF5CDCB51619D1E247CF6 /* Build configuration list for PBXProject "markdown" */;
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 1;
+			mainGroup = 5ADAB51F71C5F5AE716DEB00;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9D0FB31ABEA34B5BFBD3D211 /* markdown */,
+				53E8C3D0F9AC551D250BA9B4 /* markdown Support */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0EE768F16B8ADF72E626EA06 /* Action "leg" */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				markdown_parser.leg,
+			);
+			name = "Action \"leg\"";
+			outputPaths = (
+				markdown_parser.c,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "exec peg/leg -o markdown_parser.c markdown_parser.leg\nexit 1\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		066C69F9CD31848DCA5391BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C03EE645CF71BDF9ED813A24 /* markdown.c in Sources */,
+				E8EBCEE599B7F1BDE26682A5 /* markdown_parser.c in Sources */,
+				04D1C598B31D288548EA00BD /* markdown_output.c in Sources */,
+				BAE6C4C038EB1E19E35CB2D2 /* markdown_lib.c in Sources */,
+				D8265FDD9C38D152C5A75FE8 /* GLibFacade.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8C9EB84BCA3063201227AB20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53E8C3D0F9AC551D250BA9B4 /* markdown Support */;
+			targetProxy = B59DB1A71133429BE3FA0356 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		00050D80F39C56E774A8AB40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INTERMEDIATE_DIR = "$(PROJECT_DERIVED_FILE_DIR)/$(CONFIGURATION)";
+				SHARED_INTERMEDIATE_DIR = "$(SYMROOT)/DerivedSources/$(CONFIGURATION)";
+			};
+			name = Release;
+		};
+		28A438B1B09E44AAD26FD2FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = "";
+				GCC_PREPROCESSOR_DEFINITIONS = "\"NDEBUG\"";
+				PRODUCT_NAME = markdown;
+			};
+			name = Release;
+		};
+		4C794C86755951DD2E11E34F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "markdown Support";
+			};
+			name = Release;
+		};
+		5795D78CCDA862E5763F079B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INTERMEDIATE_DIR = "$(PROJECT_DERIVED_FILE_DIR)/$(CONFIGURATION)";
+				SHARED_INTERMEDIATE_DIR = "$(SYMROOT)/DerivedSources/$(CONFIGURATION)";
+			};
+			name = Debug;
+		};
+		EA51A68230EC6B24547D248E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "markdown Support";
+			};
+			name = Debug;
+		};
+		F218DE03DB966E7A1F00FFA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = "";
+				GCC_PREPROCESSOR_DEFINITIONS = "\"DEBUG\"";
+				PRODUCT_NAME = markdown;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		190C992175741DB3B010C04D /* Build configuration list for PBXAggregateTarget "markdown Support" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA51A68230EC6B24547D248E /* Debug */,
+				4C794C86755951DD2E11E34F /* Release */,
+			);
+			defaultConfigurationIsVisible = 1;
+			defaultConfigurationName = Debug;
+		};
+		1BE4510C4674785C09EF186C /* Build configuration list for PBXNativeTarget "markdown" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F218DE03DB966E7A1F00FFA9 /* Debug */,
+				28A438B1B09E44AAD26FD2FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 1;
+			defaultConfigurationName = Debug;
+		};
+		9F9EF5CDCB51619D1E247CF6 /* Build configuration list for PBXProject "markdown" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5795D78CCDA862E5763F079B /* Debug */,
+				00050D80F39C56E774A8AB40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 1;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A30C3DD0827F8072609728D1 /* Project object */;
+}
