@@ -20,7 +20,7 @@
           'outputs': [
             'markdown_parser.c',
           ],
-          'action': ['peg/leg', '-o <@(_outputs)'],
+          'action': ['peg/leg', '-o', '<@(_outputs)', '<@(_inputs)'],
         },
       ],
       'conditions': [
