@@ -17,13 +17,13 @@
 
  ***********************************************************************/
 
+#include "glib.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
 #include <getopt.h>
-#include "glib.h"
 #include "markdown_peg.h"
 
 static int extensions;
