@@ -1,3 +1,6 @@
+#ifndef __MARKDOWN_PEG_H__
+#define __MARKDOWN_PEG_H__
+
 /* markdown_peg.h */
 #include "markdown_lib.h"
 #include "glib.h"
@@ -142,3 +145,5 @@ char * extract_metadata_value(char *text, int extensions, char *key);
 char * metavalue_for_key(char *key, element *list);
 
 element * parse_markdown_for_opml(char *string, int extensions);
+
+#endif /* __MARKDOWN_PEG_H__ */
