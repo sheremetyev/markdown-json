@@ -71,6 +71,9 @@
             #   2 == /SUBSYSTEM:WINDOWS
             'SubSystem': '1',
           },
+          'VCCLCompilerTool': {
+            'Optimization': '0'
+          }
         },
       },
     }],
