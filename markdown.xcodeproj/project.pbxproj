@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		04D1C598B31D288548EA00BD /* markdown_output.c in Sources */ = {isa = PBXBuildFile; fileRef = 9706C1688236B95A57E18BC0 /* markdown_output.c */; };
+		6A1EBCBC286CC03BBFF2753C /* markdown_json.c in Sources */ = {isa = PBXBuildFile; fileRef = 4E09F9BFCD0A6E7CF517B7D1 /* markdown_json.c */; };
 		BAE6C4C038EB1E19E35CB2D2 /* markdown_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 03BC1F116EAF48EAAAC569DF /* markdown_lib.c */; };
 		C03EE645CF71BDF9ED813A24 /* markdown.c in Sources */ = {isa = PBXBuildFile; fileRef = 7067F330A1806C5707834C1B /* markdown.c */; };
 		D8265FDD9C38D152C5A75FE8 /* GLibFacade.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C2B4EAF419C2650D2C427F7 /* GLibFacade.c */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		03BC1F116EAF48EAAAC569DF /* markdown_lib.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = markdown_lib.c; sourceTree = "<group>"; };
 		2C2B4EAF419C2650D2C427F7 /* GLibFacade.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = GLibFacade.c; sourceTree = "<group>"; };
+		4E09F9BFCD0A6E7CF517B7D1 /* markdown_json.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = markdown_json.c; sourceTree = "<group>"; };
 		54FB4132A7ABD2F73FF236A5 /* markdown_parser.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = markdown_parser.c; sourceTree = "<group>"; };
 		7067F330A1806C5707834C1B /* markdown.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = markdown.c; sourceTree = "<group>"; };
 		72B28FA762AB539844F29697 /* markdown_parser.leg */ = {isa = PBXFileReference; lastKnownFileType = text; path = markdown_parser.leg; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			children = (
 				2C2B4EAF419C2650D2C427F7 /* GLibFacade.c */,
 				7067F330A1806C5707834C1B /* markdown.c */,
+				4E09F9BFCD0A6E7CF517B7D1 /* markdown_json.c */,
 				03BC1F116EAF48EAAAC569DF /* markdown_lib.c */,
 				9706C1688236B95A57E18BC0 /* markdown_output.c */,
 				54FB4132A7ABD2F73FF236A5 /* markdown_parser.c */,
@@ -169,6 +172,7 @@
 				04D1C598B31D288548EA00BD /* markdown_output.c in Sources */,
 				BAE6C4C038EB1E19E35CB2D2 /* markdown_lib.c in Sources */,
 				D8265FDD9C38D152C5A75FE8 /* GLibFacade.c in Sources */,
+				6A1EBCBC286CC03BBFF2753C /* markdown_json.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
