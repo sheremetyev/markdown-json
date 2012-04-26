@@ -20,7 +20,8 @@ enum markdown_formats {
     OPML_FORMAT,
     GROFF_MM_FORMAT,
     ODF_FORMAT,
-    ODF_BODY_FORMAT
+    ODF_BODY_FORMAT,
+    JSON_FORMAT
 };
 
 GString * markdown_to_g_string(char *text, int extensions, int output_format);

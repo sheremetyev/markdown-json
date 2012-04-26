@@ -26,6 +26,7 @@
 #include "markdown_peg.h"
 #include "utility_functions.c"
 #include "odf.c"
+#include "markdown_json.h"
 
 static int extensions;
 static int base_header_level = 1;
@@ -2268,6 +2269,9 @@ void print_element_list(GString *out, element *elt, int format, int exts) {
         break;
     case GROFF_MM_FORMAT:
         print_groff_mm_element_list(out, elt);
+        break;
+    case JSON_FORMAT:
+        print_json_element_list(out, elt);
         break;
     default:
         fprintf(stderr, "print_element - unknown format = %d\n", format); 

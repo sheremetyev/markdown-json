@@ -82,7 +82,7 @@ Syntax extensions\n\
   --nolabels              do not generate id attributes for headers\n\
 \n\
 Converts text in specified files (or stdin) from markdown to FORMAT.\n\
-Available FORMATs:  html, latex, memoir, beamer, odf, opml\n");
+Available FORMATs:  html, latex, memoir, beamer, odf, opml, json\n");
 }
 
 int main(int argc, char * argv[]) {
@@ -231,6 +231,8 @@ int main(int argc, char * argv[]) {
         output_format = OPML_FORMAT;
     else if (strcmp(opt_to, "odf") == 0)
         output_format = ODF_FORMAT;
+    else if (strcmp(opt_to, "json") == 0)
+        output_format = JSON_FORMAT;
     else {
         fprintf(stderr, "%s: Unknown output format '%s'\n", progname, opt_to);
         exit(EXIT_FAILURE);

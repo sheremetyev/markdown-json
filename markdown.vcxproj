@@ -65,13 +65,14 @@
     <None Include="markdown.gyp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="markdown_lib.c" />
+    <ClCompile Include="markdown_json.c" />
     <ClCompile Include="markdown.c" />
-    <ClCompile Include="markdown_parser.c" />
     <ClCompile Include="markdown_output.c" />
     <ClCompile Include="GLibFacade.c" />
-    <ClCompile Include="win\getopt_long.c" />
+    <ClCompile Include="markdown_lib.c" />
+    <ClCompile Include="markdown_parser.c" />
     <ClCompile Include="win\getopt.c" />
+    <ClCompile Include="win\getopt_long.c" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="markdown_parser.leg">

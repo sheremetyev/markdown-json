@@ -10,6 +10,7 @@
         'markdown_output.c',
         'markdown_lib.c',
         'GLibFacade.c',
+        'markdown_json.c',
       ],
       'actions': [
         {
