@@ -118,11 +118,6 @@ void print_json_element(GString *out, element *elt) {
         print_json_element_list(out, elt->children);
         g_string_append_printf(out, "\"],\n");
         break;
-    case LISTITEM:
-        g_string_append_printf(out, "\n[\"listitem\",\"");
-        print_json_element_list(out, elt->children);
-        g_string_append_printf(out, "\"],\n");
-        break;
     case BLOCKQUOTE:
         g_string_append_printf(out, "\n[\"quote\",\"");
         print_json_element_list(out, elt->children);
@@ -164,6 +159,7 @@ void print_json_element(GString *out, element *elt) {
     case LIST:
     case BULLETLIST:
     case ORDEREDLIST:
+    case LISTITEM:
         print_json_element_list(out, elt->children);
         break;
 
