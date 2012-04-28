@@ -2271,7 +2271,10 @@ void print_element_list(GString *out, element *elt, int format, int exts) {
         print_groff_mm_element_list(out, elt);
         break;
     case JSON_FORMAT:
+        g_string_append_printf(out, "[\"text\",\n");
         print_json_element_list(out, elt);
+        out->str[(out->currentStringLength)-=2] = '\0'; // HACK: remove last comma
+        g_string_append_printf(out, "\n]\n");
         break;
     default:
         fprintf(stderr, "print_element - unknown format = %d\n", format); 
