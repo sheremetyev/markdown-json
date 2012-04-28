@@ -1,0 +1,15 @@
+markdown -t json
+<<<
+Plain text.
+
+Header
+------
+* item 1
+* item 2
+>>>
+["text",
+  ["para", "Plain text."],
+  ["heading", "Header"],
+  ["para", "item 1"],
+  ["para", "item 2"]
+]
