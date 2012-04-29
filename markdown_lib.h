@@ -14,6 +14,5 @@ enum markdown_extensions {
 
 GString * markdown_to_g_string(char *text, int extensions);
 char * markdown_to_string(char *text, int extensions);
-char * extract_metadata_value(char *text, int extensions, char *key);
 
 /* vim: set ts=4 sw=4 : */

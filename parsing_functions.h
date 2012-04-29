@@ -34,8 +34,6 @@ static void free_element_contents(element elt) {
       case AUTOLABEL:
       case CITATION:
       case TERM:
-      case METAKEY:
-      case METAVALUE:
       case TABLESEPARATOR:
       case ATTRKEY:
       case GLOSSARY:
@@ -127,54 +125,6 @@ element * parse_markdown(char *string, int extensions, element *reference_list, 
     charbuf = string;
 
     yyparsefrom(yy_Doc);
-
-    charbuf = oldcharbuf;          /* restore charbuf to original value */
-    return parse_result;
-
-}
-
-element * parse_markdown_with_metadata(char *string, int extensions, element *reference_list, element *note_list, element *label_list) {
-
-    char *oldcharbuf;
-    syntax_extensions = extensions;
-    references = reference_list;
-    notes = note_list;
-    labels = label_list;
-
-    oldcharbuf = charbuf;
-    charbuf = string;
-
-    yyparsefrom(yy_DocWithMetaData);
-
-    charbuf = oldcharbuf;          /* restore charbuf to original value */
-    return parse_result;
-
-}
-
-element * parse_metadata_only(char *string, int extensions) {
-
-    char *oldcharbuf;
-    syntax_extensions = extensions;
-
-    oldcharbuf = charbuf;
-    charbuf = string;
-
-    yyparsefrom(yy_MetaDataOnly);
-
-    charbuf = oldcharbuf;          /* restore charbuf to original value */
-    return parse_result;
-
-}
-
-element * parse_markdown_for_opml(char *string, int extensions) {
-
-    char *oldcharbuf;
-    syntax_extensions = extensions;
-
-    oldcharbuf = charbuf;
-    charbuf = string;
-
-    yyparsefrom(yy_DocForOPML);
 
     charbuf = oldcharbuf;          /* restore charbuf to original value */
     return parse_result;

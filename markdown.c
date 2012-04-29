@@ -74,7 +74,6 @@ Application Options:\n\
   --filter-styles         filter out HTML styles\n\
   -c, --compatibility     markdown compatibility mode\n\
   -b, --batch             process multiple files automatically\n\
-  -e, --extract           extract and display specified metadata\n\
 \n\
 Syntax extensions\n\
   --smart --nosmart       toggle smart typography extension\n\
@@ -128,7 +127,6 @@ int main(int argc, char * argv[]) {
       MD_ARGUMENT_FLAG( "filter-styles", 0, 1, &opt_filter_styles, "filter out HTML styles", NULL ),
       MD_ARGUMENT_FLAG( "compatibility", 'c', 1, &opt_compatibility, "markdown compatibility mode", NULL ),
       MD_ARGUMENT_FLAG( "batch", 'b', 1, &opt_batchmode, "process multiple files automatically", NULL ),
-      MD_ARGUMENT_STRING( "extract", 'e', &opt_extract_meta, "extract and display specified metadata", NULL ),
       MD_ARGUMENT_FLAG( "smart", 0, 1, &opt_smart, "use smart typography extension (on by default)", NULL ),
       MD_ARGUMENT_FLAG( "nosmart", 0, 1, &opt_no_smart, "do not use smart typography extension", NULL ),
       MD_ARGUMENT_FLAG( "notes", 0, 1, &opt_notes, "use notes extension (on by default)", NULL ),
@@ -230,13 +228,6 @@ int main(int argc, char * argv[]) {
                 while ((curchar = fgetc(input)) != EOF)
                     g_string_append_c(inputbuf, curchar);
                 fclose(input);
-
-                /* Display metadata on request */
-                if (opt_extract_meta) {
-                    out = extract_metadata_value(inputbuf->str, extensions, opt_extract_meta);
-                    if (out != NULL) fprintf(stdout, "%s\n", out);
-                    return(EXIT_SUCCESS);
-                }
                 
                 file = g_string_new(argv[i+1]);
 
@@ -275,13 +266,6 @@ int main(int argc, char * argv[]) {
                     g_string_append_c(inputbuf, curchar);
                 fclose(input);
            }
-        }
-
-        /* Display metadata on request */
-        if (opt_extract_meta) {
-            out = extract_metadata_value(inputbuf->str, extensions, opt_extract_meta);
-            if (out != NULL) fprintf(stdout, "%s\n", out);
-            return(EXIT_SUCCESS);
         }
         
        /* we allow "-" as a synonym for stdout here */

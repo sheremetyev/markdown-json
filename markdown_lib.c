@@ -158,7 +158,7 @@ GString * markdown_to_g_string(char *text, int extensions) {
     references = parse_references(formatted_text->str, extensions);
     notes = parse_notes(formatted_text->str, extensions, references);
     labels = parse_labels(formatted_text->str, extensions, references, notes);
-    result = parse_markdown_with_metadata(formatted_text->str, extensions, references, notes, labels);
+    result = parse_markdown(formatted_text->str, extensions, references, notes, labels);
 
     result = process_raw_blocks(result, extensions, references, notes, labels);
 
@@ -183,21 +183,3 @@ char * markdown_to_string(char *text, int extensions) {
 }
 
 /* vim:set ts=4 sw=4: */
-
-/* extract_metadata_value - parse document and return value of specified
-   metadata key (e.g. "LateX Mode")/
-   Returns a null-terminated string, which must be freed after use. */
-char * extract_metadata_value(char *text, int extensions, char *key) {
-    char *value;
-    element *result;
-    GString *formatted_text;
-
-    formatted_text = preformat_text(text);
-    
-    result = parse_metadata_only(formatted_text->str, extensions);
-    
-    value = metavalue_for_key(key, result->children);
-    free_element_list(result);
-    return value;
-}
-

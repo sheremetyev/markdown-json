@@ -64,9 +64,6 @@ enum keys { LIST,   /* A generic list of values.  For ordered and bullet lists, 
             DEFLIST,
             TERM,
             DEFINITION,
-            METAKEY,
-            METAVALUE,
-            METADATA,
             FOOTER,
             LABEL,
             HEADINGSECTION,
@@ -133,17 +130,8 @@ element * parse_notes(char *string, int extensions, element *reference_list);
 element * parse_labels(char *string, int extensions, element *reference_list, element *note_list);
 
 element * parse_markdown(char *string, int extensions, element *reference_list, element *note_list, element *label_list);
-element * parse_markdown_with_metadata(char *string, int extensions, element *reference_list, element *note_list, element *label_list);
 void free_element_list(element * elt);
 void free_element(element *elt);
 void print_element_list(GString *out, element *elt, int exts);
-
-
-element * parse_metadata_only(char *string, int extensions);
-char * extract_metadata_value(char *text, int extensions, char *key);
-
-char * metavalue_for_key(char *key, element *list);
-
-element * parse_markdown_for_opml(char *string, int extensions);
 
 #endif /* __MARKDOWN_PEG_H__ */

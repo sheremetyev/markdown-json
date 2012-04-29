@@ -191,12 +191,6 @@ void print_json_element(GString *out, element *elt) {
     case DEFINITION:
         break;
 
-    /* Metadata - ignored */
-    case METADATA:
-    case METAKEY:
-    case METAVALUE:
-        break;
-
     /* Other ignored elements */
     case FOOTER:
     case ATTRKEY:
