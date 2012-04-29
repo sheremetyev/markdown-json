@@ -16,6 +16,8 @@
         'markdown_json.h',
         'markdown_json.c',
         'markdown_peg.h',
+        'parsing_functions.h',
+        'utility_functions.h',
       ],
       'actions': [
         {

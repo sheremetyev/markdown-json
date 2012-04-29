@@ -70,19 +70,21 @@
   <ItemGroup>
     <ClInclude Include="glib.h" />
     <ClInclude Include="markdown_json.h" />
+    <ClInclude Include="utility_functions.h" />
     <ClInclude Include="markdown_peg.h" />
     <ClInclude Include="markdown_lib.h" />
     <ClInclude Include="GLibFacade.h" />
+    <ClInclude Include="parsing_functions.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="markdown_json.c" />
     <ClCompile Include="markdown_parser.c" />
     <ClCompile Include="markdown.c" />
     <ClCompile Include="markdown_output.c" />
-    <ClCompile Include="markdown_lib.c" />
     <ClCompile Include="GLibFacade.c" />
-    <ClCompile Include="win\getopt.c" />
+    <ClCompile Include="markdown_lib.c" />
     <ClCompile Include="win\getopt_long.c" />
+    <ClCompile Include="win\getopt.c" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="markdown_parser.leg">
