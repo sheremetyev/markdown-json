@@ -24,7 +24,7 @@
 #include <assert.h>
 #include "glib.h"
 #include "markdown_peg.h"
-#include "utility_functions.c"
+#include "utility_functions.h"
 #include "odf.c"
 #include "markdown_json.h"
 
@@ -2819,7 +2819,7 @@ void print_odf_body_element_list(GString *out, element *list) {
     }
 }
 
-/* bogus function just references a couple globals defined in utility_functions.c but not used in this source file */
+/* bogus function just references a couple globals defined in utility_functions.h but not used in this source file */
 static void bogus_function()
 {
 	static char* bogus;

@@ -1,4 +1,4 @@
-/* parsing_functions.c - Functions for parsing markdown and
+/* parsing_functions.h - Functions for parsing markdown and
  * freeing element lists. */
 
 int yyparse(void);

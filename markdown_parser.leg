@@ -20,7 +20,7 @@
 #include <stdbool.h>
 #include <assert.h>
 #include "markdown_peg.h"
-#include "utility_functions.c"
+#include "utility_functions.h"
 
 #define YY_DEBUG_OFF
 
@@ -1312,5 +1312,5 @@ MarkdownHtmlTagOpen = a:StartList '<' {a = cons(mk_str("<"),a);}
 
 %%
 
-#include "parsing_functions.c"
+#include "parsing_functions.h"
 

@@ -1,4 +1,4 @@
-/* utility_functions.c - List manipulation functions, element
+/* utility_functions.h - List manipulation functions, element
  * constructors, and macro definitions for leg markdown parser. */
 
 #ifndef _WIN32
