@@ -9,23 +9,11 @@ enum markdown_extensions {
     EXT_FILTER_STYLES    = 1 << 3,
     EXT_COMPATIBILITY    = 1 << 4,
     EXT_PROCESS_HTML     = 1 << 5,
-	EXT_NO_LABELS		 = 1 << 6,
+    EXT_NO_LABELS        = 1 << 6,
 };
 
-enum markdown_formats {
-    HTML_FORMAT,
-    LATEX_FORMAT,
-    MEMOIR_FORMAT,
-    BEAMER_FORMAT,
-    OPML_FORMAT,
-    GROFF_MM_FORMAT,
-    ODF_FORMAT,
-    ODF_BODY_FORMAT,
-    JSON_FORMAT
-};
-
-GString * markdown_to_g_string(char *text, int extensions, int output_format);
-char * markdown_to_string(char *text, int extensions, int output_format);
+GString * markdown_to_g_string(char *text, int extensions);
+char * markdown_to_string(char *text, int extensions);
 char * extract_metadata_value(char *text, int extensions, char *key);
 
 /* vim: set ts=4 sw=4 : */

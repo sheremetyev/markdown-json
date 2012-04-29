@@ -69,7 +69,6 @@ Help Options:\n\
 Application Options:\n\
   -v, --version           print version and exit\n\
   -o, --output=FILE       send output to FILE (default is stdout)\n\
-  -t, --to=FORMAT         convert to FORMAT (default is html)\n\
   -x, --extensions        use all syntax extensions\n\
   --filter-html           filter out raw HTML (except styles)\n\
   --filter-styles         filter out HTML styles\n\
@@ -83,8 +82,7 @@ Syntax extensions\n\
   --process-html          process MultiMarkdown inside of raw HTML\n\
   --nolabels              do not generate id attributes for headers\n\
 \n\
-Converts text in specified files (or stdin) from markdown to FORMAT.\n\
-Available FORMATs:  html, latex, memoir, beamer, odf, opml, json\n");
+Converts text in specified files (or stdin) from markdown to Text JSON.\n");
 }
 
 int main(int argc, char * argv[]) {
@@ -101,8 +99,6 @@ int main(int argc, char * argv[]) {
     FILE *output;
     char curchar;
     char *progname = argv[0];
-
-    int output_format = HTML_FORMAT;
 
     /* Code for command-line option parsing. */
 
@@ -127,7 +123,6 @@ int main(int argc, char * argv[]) {
 	  MD_ARGUMENT_FLAG( "help", 'h', 1, NULL, "Show help options", NULL ),
 	  MD_ARGUMENT_FLAG( "version", 'v', 1, &opt_version, "print version and exit", NULL ),
       MD_ARGUMENT_STRING( "output", 'o', &opt_output, "send output to FILE (default is stdout)", "FILE" ),
-      MD_ARGUMENT_STRING( "to", 't', &opt_to, "convert to FORMAT (default is html)", "FORMAT" ),
       MD_ARGUMENT_FLAG( "extensions", 'x', 1, &opt_allext, "use all syntax extensions", NULL ),
       MD_ARGUMENT_FLAG( "filter-html", 0, 1, &opt_filter_html, "filter out raw HTML (except styles)", NULL ),
       MD_ARGUMENT_FLAG( "filter-styles", 0, 1, &opt_filter_styles, "filter out HTML styles", NULL ),
@@ -219,27 +214,6 @@ int main(int argc, char * argv[]) {
         extensions = extensions | EXT_NO_LABELS;
     }
 
-    if (opt_to == NULL)
-        output_format = HTML_FORMAT;
-    else if (strcmp(opt_to, "html") == 0)
-        output_format = HTML_FORMAT;
-    else if (strcmp(opt_to, "latex") == 0)
-        output_format = LATEX_FORMAT;
-    else if (strcmp(opt_to, "memoir") == 0)
-        output_format = MEMOIR_FORMAT;
-    else if (strcmp(opt_to, "beamer") == 0)
-        output_format = BEAMER_FORMAT;
-    else if (strcmp(opt_to, "opml") == 0)
-        output_format = OPML_FORMAT;
-    else if (strcmp(opt_to, "odf") == 0)
-        output_format = ODF_FORMAT;
-    else if (strcmp(opt_to, "json") == 0)
-        output_format = JSON_FORMAT;
-    else {
-        fprintf(stderr, "%s: Unknown output format '%s'\n", progname, opt_to);
-        exit(EXIT_FAILURE);
-    }
-
     numargs = argc - 1;
 
     if (opt_batchmode && numargs != 0) {
@@ -264,25 +238,7 @@ int main(int argc, char * argv[]) {
                     return(EXIT_SUCCESS);
                 }
                 
-                /* remove file extension, if present */
-                fake = argv[i+1];
-                if (strrchr(fake, '.') != NULL) {
-                    int count = strrchr(fake,'.') - fake;
-                    if (count != 0) {
-                        fake[count] = '\0';
-                    }
-                }
-
-                file = g_string_new(fake);
-                if (output_format == HTML_FORMAT) {
-                    g_string_append(file,".html");
-                } else if (output_format == OPML_FORMAT) {
-                    g_string_append(file,".opml");
-                } else if (output_format == ODF_FORMAT) {
-                    g_string_append(file,".fodt");
-                } else {
-                    g_string_append(file,".tex");
-                }
+                file = g_string_new(argv[i+1]);
 
                 /* open output file */
                 if (!(output = fopen(file->str, "w"))) {
@@ -290,7 +246,7 @@ int main(int argc, char * argv[]) {
                     return 1;
                 }
                
-                out = markdown_to_string(inputbuf->str, extensions, output_format);
+                out = markdown_to_string(inputbuf->str, extensions);
 
                 fprintf(output, "%s\n", out);
                 fclose(output);
@@ -336,7 +292,7 @@ int main(int argc, char * argv[]) {
             return 1;
         }
 
-        out = markdown_to_string(inputbuf->str, extensions, output_format);
+        out = markdown_to_string(inputbuf->str, extensions);
         fprintf(output, "%s\n", out);
         free(out);
         fclose(output);

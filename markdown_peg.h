@@ -136,7 +136,7 @@ element * parse_markdown(char *string, int extensions, element *reference_list, 
 element * parse_markdown_with_metadata(char *string, int extensions, element *reference_list, element *note_list, element *label_list);
 void free_element_list(element * elt);
 void free_element(element *elt);
-void print_element_list(GString *out, element *elt, int format, int exts);
+void print_element_list(GString *out, element *elt, int exts);
 
 
 element * parse_metadata_only(char *string, int extensions);
