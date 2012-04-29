@@ -38,7 +38,7 @@ static int extensions;
 
  ***********************************************************************/
 
-#define VERSION "3.5.1"
+#define VERSION "0.0.1"
 #define COPYRIGHT "portions Copyright (c) 2012 Fyodor Sheremetyev, MIT licensed.\n" \
                   "portions Copyright (c) 2010-2012 Fletcher T. Penney.\n" \
 				  "portions Copyright (c) 2011 Daniel Jalkut, MIT licensed.\n" \
