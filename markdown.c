@@ -41,7 +41,7 @@ static int extensions;
 #define VERSION "0.0.1"
 #define COPYRIGHT "portions Copyright (c) 2012 Fyodor Sheremetyev, MIT licensed.\n" \
                   "portions Copyright (c) 2010-2012 Fletcher T. Penney.\n" \
-				  "portions Copyright (c) 2011 Daniel Jalkut, MIT licensed.\n" \
+                  "portions Copyright (c) 2011 Daniel Jalkut, MIT licensed.\n" \
                   "original Copyright (c) 2008-2009 John MacFarlane.  License GPLv2+ or MIT.\n" \
                   "This is free software: you are free to change and redistribute it.\n" \
                   "There is NO WARRANTY, to the extent permitted by law."
@@ -55,12 +55,12 @@ void version(const char *progname)
          COPYRIGHT);
 }
 
-#define MD_ARGUMENT_FLAG(name, flagChar, flagValue, outPointer, desc, argPlaceholder)	{ name, no_argument, outPointer, flagValue }
-#define MD_ARGUMENT_STRING(name, flagChar, outPointer, desc, argPlaceholder)	{ name, required_argument, NULL, flagChar }
+#define MD_ARGUMENT_FLAG(name, flagChar, flagValue, outPointer, desc, argPlaceholder)   { name, no_argument, outPointer, flagValue }
+#define MD_ARGUMENT_STRING(name, flagChar, outPointer, desc, argPlaceholder)    { name, required_argument, NULL, flagChar }
 
 /* With getopt we don't get the same fancy automatic usage (I don't think?) so for now we're faking it ... */
 static void printUsage() {
-	printf("Usage:\
+    printf("Usage:\
   markdown-json [OPTION...] [FILE...]\n\
 \n\
 Help Options:\n\
@@ -85,7 +85,7 @@ Converts text in specified files (or stdin) from markdown to Text JSON.\n");
 }
 
 int main(int argc, char * argv[]) {
-	
+    
     int numargs;            /* number of filename arguments */
     int i;
 
@@ -117,10 +117,10 @@ int main(int argc, char * argv[]) {
     static gchar *opt_extract_meta = FALSE;
     static gboolean opt_no_labels = FALSE;
 
-	static struct option entries[] =
-	{
-	  MD_ARGUMENT_FLAG( "help", 'h', 1, NULL, "Show help options", NULL ),
-	  MD_ARGUMENT_FLAG( "version", 'v', 1, &opt_version, "print version and exit", NULL ),
+    static struct option entries[] =
+    {
+      MD_ARGUMENT_FLAG( "help", 'h', 1, NULL, "Show help options", NULL ),
+      MD_ARGUMENT_FLAG( "version", 'v', 1, &opt_version, "print version and exit", NULL ),
       MD_ARGUMENT_STRING( "output", 'o', &opt_output, "send output to FILE (default is stdout)", "FILE" ),
       MD_ARGUMENT_FLAG( "extensions", 'x', 1, &opt_allext, "use all syntax extensions", NULL ),
       MD_ARGUMENT_FLAG( "filter-html", 0, 1, &opt_filter_html, "filter out raw HTML (except styles)", NULL ),
@@ -136,47 +136,47 @@ int main(int argc, char * argv[]) {
       { NULL }
     };
 
-	char ch;
-	while ((ch = getopt_long(argc, argv, "hvo:t:xcbe:", entries, NULL)) != -1) {
-		 switch (ch) {
-			case 'h':
-				printUsage();
-				return EXIT_SUCCESS;
-				break;
-			case 'v':
-				opt_version = true;
-				break;
-			case 'o':
-				opt_output = malloc(strlen(optarg) + 1);
-				strcpy(opt_output, optarg);
-				break;
-			case 't':
-				opt_to = malloc(strlen(optarg) + 1);
-				strcpy(opt_to, optarg);
-				break;
-			case 'x':
-				opt_allext = true;
-				break;
-			case 'c':
-				opt_compatibility = true;
-				break;
-			case 'b':
-				opt_batchmode = true;
-				break;
-			case 'e':
-				opt_extract_meta = malloc(strlen(optarg) + 1);
-				strcpy(opt_extract_meta, optarg);
-				break;
-		 }
-	}
+    char ch;
+    while ((ch = getopt_long(argc, argv, "hvo:t:xcbe:", entries, NULL)) != -1) {
+         switch (ch) {
+            case 'h':
+                printUsage();
+                return EXIT_SUCCESS;
+                break;
+            case 'v':
+                opt_version = true;
+                break;
+            case 'o':
+                opt_output = malloc(strlen(optarg) + 1);
+                strcpy(opt_output, optarg);
+                break;
+            case 't':
+                opt_to = malloc(strlen(optarg) + 1);
+                strcpy(opt_to, optarg);
+                break;
+            case 'x':
+                opt_allext = true;
+                break;
+            case 'c':
+                opt_compatibility = true;
+                break;
+            case 'b':
+                opt_batchmode = true;
+                break;
+            case 'e':
+                opt_extract_meta = malloc(strlen(optarg) + 1);
+                strcpy(opt_extract_meta, optarg);
+                break;
+         }
+    }
 
-	 argc -= optind;
-	 argv += optind;		 
-	
-	/* We expect argc and argv to still point just one below the start of remaining args */
-	argc++;
-	argv--;
-	
+     argc -= optind;
+     argv += optind;
+    
+    /* We expect argc and argv to still point just one below the start of remaining args */
+    argc++;
+    argv--;
+    
     /* Process command-line options and arguments. */
 
     if (opt_version) {

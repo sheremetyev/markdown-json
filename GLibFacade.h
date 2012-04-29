@@ -1,9 +1,9 @@
 /*
- *	GLibFacade.h
- *	MultiMarkdown
- *	
- *	Created by Daniel Jalkut on 7/26/11.
- *	Copyright 2011 __MyCompanyName__. All rights reserved.
+ *  GLibFacade.h
+ *  MultiMarkdown
+ *
+ *  Created by Daniel Jalkut on 7/26/11.
+ *  Copyright 2011 __MyCompanyName__. All rights reserved.
  */
 
 #ifndef __MARKDOWN_GLIB_FACADE__
@@ -32,14 +32,14 @@ typedef char gchar;
  */
 
 typedef struct 
-{	
-	/* Current UTF8 byte stream this string represents */
-	char* str;
+{
+    /* Current UTF8 byte stream this string represents */
+    char* str;
 
-	/* Where in the str buffer will we add new characters */
-	/* or append new strings? */
-	int currentStringBufferSize;
-	int currentStringLength;
+    /* Where in the str buffer will we add new characters */
+    /* or append new strings? */
+    int currentStringBufferSize;
+    int currentStringLength;
 } GString;
 
 GString* g_string_new(char *startingString);
@@ -56,8 +56,8 @@ void g_string_append_printf(GString* baseString, char* format, ...);
 
 typedef struct _GSList
 {
-	void* data;	
-	struct _GSList* next;
+    void* data;
+    struct _GSList* next;
 } GSList;
 
 void g_slist_free(GSList* ripList);
