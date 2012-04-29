@@ -16,10 +16,10 @@
     <ClInclude Include="markdown_json.h" />
     <ClInclude Include="utility_functions.h" />
     <ClInclude Include="markdown_peg.h" />
+    <None Include="markdown-json.gyp" />
     <ClCompile Include="markdown_output.c" />
     <ClInclude Include="markdown_lib.h" />
     <ClCompile Include="GLibFacade.c" />
-    <None Include="markdown.gyp" />
     <ClCompile Include="markdown_lib.c" />
     <ClInclude Include="GLibFacade.h" />
     <ClInclude Include="parsing_functions.h" />

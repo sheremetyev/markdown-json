@@ -65,7 +65,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="markdown.gyp" />
+    <None Include="markdown-json.gyp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="glib.h" />
