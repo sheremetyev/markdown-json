@@ -44,12 +44,3 @@ void print_element_list(GString *out, element *elt, int exts) {
     out->str[(out->currentStringLength)-=2] = '\0'; // HACK: remove last comma
     g_string_append_printf(out, "\n]\n");
 }
-
-/* bogus function just references a couple globals defined in utility_functions.h but not used in this source file */
-static void bogus_function()
-{
-    static char* bogus;
-    static element* bogus2;
-    bogus = charbuf;
-    bogus2 = parse_result;
-}
