@@ -1,7 +1,7 @@
 {
   'targets': [
     {
-      'target_name': 'markdown',
+      'target_name': 'markdown-json',
       'type': 'executable',
       'msvs_guid': '5B618686-D628-45A8-9E12-B8C2FAA08C71',
       'sources': [
