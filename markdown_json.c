@@ -1,11 +1,15 @@
-#include <assert.h>
-#include "markdown_json.h"
-
 /**********************************************************************
 
-  Functions for printing Elements as JSON
+  markdown_json.c - Text JSON output for Markdown parser.
+  Copyright (c) 2012 Fyodor Sheremetyev
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the MIT license. See LICENSE for details.
 
  ***********************************************************************/
+
+#include <assert.h>
+#include "markdown_json.h"
 
 /* print_json_string - print string, escaping for JSON */
 void print_json_string(GString *out, char *str) {
