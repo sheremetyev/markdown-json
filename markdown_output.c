@@ -28,8 +28,6 @@
 #include "utility_functions.h"
 #include "markdown_json.h"
 
-static int extensions;
-
 /**********************************************************************
 
   Parameterized function for printing an Element.
@@ -37,8 +35,6 @@ static int extensions;
  ***********************************************************************/
 
 void print_element_list(GString *out, element *elt, int exts) {
-    extensions = exts;
-
     g_string_append_printf(out, "[\"text\",\n");
     print_json_element_list(out, elt);
     out->str[(out->currentStringLength)-=2] = '\0'; // HACK: remove last comma
