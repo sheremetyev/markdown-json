@@ -49,7 +49,7 @@ static int extensions;
 /* print version and copyright information */
 void version(const char *progname)
 {
-  printf("peg-multimarkdown version %s\n"
+  printf("markdown-json version %s\n"
          "%s\n",
          VERSION,
          COPYRIGHT);
@@ -61,7 +61,7 @@ void version(const char *progname)
 /* With getopt we don't get the same fancy automatic usage (I don't think?) so for now we're faking it ... */
 static void printUsage() {
 	printf("Usage:\
-  multimarkdown [OPTION...] [FILE...]\n\
+  markdown-json [OPTION...] [FILE...]\n\
 \n\
 Help Options:\n\
   -h, --help              Show help options\n\
