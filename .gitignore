@@ -8,5 +8,5 @@ Release/
 xcuserdata/
 *.user
 /markdown_parser.c
-/markdown
+/markdown-json
 /*.exe

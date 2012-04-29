@@ -1,3 +1,3 @@
 #!/bin/bash
-xcodebuild -project markdown.xcodeproj -configuration Release
-cp build/Release/markdown ./
+xcodebuild -project markdown-json.xcodeproj -configuration Release
+cp build/Release/markdown-json ./
