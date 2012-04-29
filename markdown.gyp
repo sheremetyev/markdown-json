@@ -5,12 +5,17 @@
       'type': 'executable',
       'msvs_guid': '5B618686-D628-45A8-9E12-B8C2FAA08C71',
       'sources': [
+        'glib.h',
         'markdown.c',
         'markdown_parser.c',
         'markdown_output.c',
+        'markdown_lib.h',
         'markdown_lib.c',
+        'GLibFacade.h',
         'GLibFacade.c',
+        'markdown_json.h',
         'markdown_json.c',
+        'markdown_peg.h',
       ],
       'actions': [
         {

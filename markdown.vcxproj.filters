@@ -10,12 +10,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="markdown_json.c" />
-    <ClCompile Include="markdown.c" />
-    <None Include="markdown.gyp" />
-    <ClCompile Include="markdown_output.c" />
-    <ClCompile Include="GLibFacade.c" />
-    <ClCompile Include="markdown_lib.c" />
     <ClCompile Include="markdown_parser.c" />
+    <ClCompile Include="markdown.c" />
+    <ClInclude Include="glib.h" />
+    <ClInclude Include="markdown_json.h" />
+    <ClInclude Include="markdown_peg.h" />
+    <ClCompile Include="markdown_output.c" />
+    <ClInclude Include="markdown_lib.h" />
+    <None Include="markdown.gyp" />
+    <ClCompile Include="markdown_lib.c" />
+    <ClInclude Include="GLibFacade.h" />
+    <ClCompile Include="GLibFacade.c" />
     <ClCompile Include="win\getopt.c">
       <Filter>win</Filter>
     </ClCompile>
