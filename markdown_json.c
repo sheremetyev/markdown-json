@@ -281,6 +281,8 @@ void print_json_block_element(GString *out, element *elt, int level, bool first)
 
     /* not implemented elements - ignored */
     case DEFLIST:
+    case TERM:
+    case DEFINITION:
     case BLOCKQUOTE:
     case NOTE:
         break;
