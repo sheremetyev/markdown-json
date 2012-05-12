@@ -1,0 +1,17 @@
+../markdown-json
+<<<
+Reference [^note].
+
+[^note]: defined.
+>>>JSON
+["text",
+  ["para", { "level": 0 },
+    ["plain", "Reference "],
+    ["ref", "^note"],
+    ["plain", "."]
+  ],
+  ["note", { "level": 1 },
+    ["label", "^note"],
+    ["plain", "defined."]
+  ]
+]
