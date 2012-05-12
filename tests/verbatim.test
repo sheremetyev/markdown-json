@@ -1,0 +1,12 @@
+../markdown-json
+<<<
+    Indented
+    verbatim.
+>>>JSON
+["text",
+  ["verbatim", { "level": 0 },
+    ["plain", "Indented"],
+    ["break", "\n"],
+    ["plain", "verbatim."]
+  ]
+]

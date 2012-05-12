@@ -15,6 +15,9 @@ void print_json_string(GString *out, char *str) {
     char *tmp;
     while (*str != '\0') {
         switch (*str) {
+        case '\n':
+            g_string_append_printf(out, "\\n");
+            break;
         default:
             g_string_append_c(out, *str);
         }
@@ -32,6 +35,39 @@ void print_json_element_level(GString *out, int level) {
     g_string_append_printf(out, ", { \"level\": ");
     g_string_append_printf(out, "%d", level);
     g_string_append_printf(out, " }");
+}
+
+void print_json_break(GString *out) {
+    g_string_append_printf(out, "[");
+    print_json_quoted_string(out, "break");
+    g_string_append_printf(out, ",");
+    print_json_quoted_string(out, "\\n");
+    g_string_append_printf(out, "]");
+}
+
+void print_json_verbatim(GString *out, char *str) {
+    g_string_append_printf(out, "[");
+    print_json_quoted_string(out, "plain");
+    g_string_append_printf(out, ", \"");
+
+    while (*str != '\0') {
+        switch (*str) {
+        case '\n':
+            if (*(str+1) == 0) // ignore final line break;
+                break;
+            g_string_append_printf(out, "\"],");
+            print_json_break(out);
+            g_string_append_printf(out, ",[");
+            print_json_quoted_string(out, "plain");
+            g_string_append_printf(out, ", \"");
+            break;
+        default:
+            g_string_append_c(out, *str);
+        }
+        str++;
+    }
+
+    g_string_append_printf(out, "\"]");
 }
 
 void print_json_literal_element_list(GString *out, element *list);
@@ -213,6 +249,14 @@ void print_json_block_element(GString *out, element *elt, int level, bool first)
         }
         print_json_element_level(out, level);
         print_json_inline_elements(out, elt->children);
+        g_string_append_printf(out, "]");
+        break;
+    case VERBATIM:
+        g_string_append_printf(out, ", [");
+        print_json_quoted_string(out, "verbatim");
+        print_json_element_level(out, level);
+        g_string_append_printf(out, ",");
+        print_json_verbatim(out, elt->contents.str);
         g_string_append_printf(out, "]");
         break;
 
