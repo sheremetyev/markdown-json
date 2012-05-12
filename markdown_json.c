@@ -117,6 +117,16 @@ void print_json_inline_element(GString *out, element *elt) {
         print_json_literal_elements(out, elt->children);
         break;
 
+    case LINK:
+        print_json_element_tag(out, "link");
+        print_json_literal_elements(out, elt->contents.link->label);
+        g_string_append_printf(out, "], [");
+        print_json_element_tag(out, "url");
+        g_string_append_printf(out, ", \"");
+        print_json_string(out, elt->contents.link->url);
+        g_string_append_printf(out, "\"");
+        break;
+
     /* transparent grouping elements */
     case LIST:
         print_json_inline_element_list(out, elt->children);

@@ -1,0 +1,13 @@
+../markdown-json
+<<<
+Explicit [link](#see-link).
+
+>>>JSON
+["text",
+  ["para", { "level": 0 },
+    ["plain", "Explicit "],
+    ["link", "link"],
+    ["url", "#see-link"],
+    ["plain", "."]
+  ]
+]
