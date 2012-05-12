@@ -1,9 +1,16 @@
 ../markdown-json
 <<<
 Lists [in] text.
+
+Nested ***inlines***.
 >>>JSON
 ["text",
   ["para", { "level": 0 },
     ["plain", "Lists [in] text."]
+  ],
+  ["para", { "level": 0 },
+    ["plain", "Nested "],
+    ["strong", "inlines"],
+    ["plain", "."]
   ]
 ]

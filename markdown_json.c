@@ -70,6 +70,12 @@ void print_json_literal_element(GString *out, element *elt) {
         g_string_append_printf(out, "\\\"");
         break;
 
+    /* nested inlines are - ignored */
+    case EMPH:
+    case STRONG:
+        print_json_literal_element_list(out, elt->children);
+        break;
+
     /* transparent grouping elements */
     case LIST:
         print_json_literal_element_list(out, elt->children);
