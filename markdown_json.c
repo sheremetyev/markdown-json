@@ -22,9 +22,9 @@ void print_json_string(GString *out, char *str) {
     }
 }
 
-void print_json_element_tag(GString *out, char *str) {
+void print_json_quoted_string(GString *out, char *str) {
     g_string_append_printf(out, "\"");
-    g_string_append_printf(out, str);
+    print_json_string(out, str);
     g_string_append_printf(out, "\"");
 }
 
@@ -109,22 +109,21 @@ void print_json_inline_element_list(GString *out, element *list);
 void print_json_inline_element(GString *out, element *elt) {
     switch (elt->key) {
     case EMPH:
-        print_json_element_tag(out, "emph");
+        print_json_quoted_string(out, "emph");
         print_json_literal_elements(out, elt->children);
         break;
     case STRONG:
-        print_json_element_tag(out, "strong");
+        print_json_quoted_string(out, "strong");
         print_json_literal_elements(out, elt->children);
         break;
 
     case LINK:
-        print_json_element_tag(out, "link");
+        print_json_quoted_string(out, "link");
         print_json_literal_elements(out, elt->contents.link->label);
         g_string_append_printf(out, "], [");
-        print_json_element_tag(out, "url");
-        g_string_append_printf(out, ", \"");
-        print_json_string(out, elt->contents.link->url);
-        g_string_append_printf(out, "\"");
+        print_json_quoted_string(out, "url");
+        g_string_append_printf(out, ",");
+        print_json_quoted_string(out, elt->contents.link->url);
         break;
 
     /* transparent grouping elements */
@@ -172,7 +171,7 @@ void print_json_inline_elements(GString *out, element *list) {
     while (list != NULL) {
         g_string_append_printf(out, ", [");
         if (is_literal_element(list)) {
-            print_json_element_tag(out, "plain");
+            print_json_quoted_string(out, "plain");
             g_string_append_printf(out, ", \"");
             print_json_literal_element(out, list);
             while (list->next != NULL && is_literal_element(list->next)) {
@@ -194,7 +193,7 @@ void print_json_block_element(GString *out, element *elt, int level, bool first)
     switch (elt->key) {
     case H1: case H2: case H3: case H4: case H5: case H6:
         g_string_append_printf(out, ", [");
-        print_json_element_tag(out, "heading");
+        print_json_quoted_string(out, "heading");
         print_json_element_level(out, 2);
         print_json_inline_elements(out, elt->children);
         g_string_append_printf(out, "]");
@@ -203,9 +202,9 @@ void print_json_block_element(GString *out, element *elt, int level, bool first)
     case PARA:
         g_string_append_printf(out, ", [");
         if (level > 0 && first) {
-            print_json_element_tag(out, "item");
+            print_json_quoted_string(out, "item");
         } else {
-            print_json_element_tag(out, "para");
+            print_json_quoted_string(out, "para");
         }
         print_json_element_level(out, level);
         print_json_inline_elements(out, elt->children);
