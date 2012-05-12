@@ -172,6 +172,10 @@ void print_json_inline_element(GString *out, element *elt) {
         print_json_inline_element_list(out, elt->children);
         break;
 
+    /* not implemented elements - ignored */
+    case NOTE:
+        break;
+
     case RAW:
         /* Shouldn't occur - these are handled by process_raw_blocks() */
         assert(elt->key != RAW);
@@ -269,6 +273,13 @@ void print_json_block_element(GString *out, element *elt, int level, bool first)
 
     case BULLETLIST:
         print_json_block_element_list(out, elt->children, level + 1);
+        break;
+
+    /* not implemented elements - ignored */
+    case REFERENCE:
+    case DEFLIST:
+    case BLOCKQUOTE:
+    case NOTE:
         break;
 
     case RAW:

@@ -97,6 +97,7 @@ static void print_tree(element * elt, int indent) {
             case HRULE:              key = "HRULE"; break;
             case REFERENCE:          key = "REFERENCE"; break;
             case NOTE:               key = "NOTE"; break;
+            case DEFLIST:            key = "DEFLIST"; break;
             default:                 key = "?";
         }
         if ( elt->key == STR ) {
