@@ -25,7 +25,6 @@
 		2A857A4EFCE548616EFED015 /* markdown.c in Sources */ = {isa = PBXBuildFile; fileRef = AE02663ED854E81089180C53 /* markdown.c */; };
 		50630B4BA320EC5E6C85F16F /* markdown_json.c in Sources */ = {isa = PBXBuildFile; fileRef = AF1506536ECD7EDECDAF9B2B /* markdown_json.c */; };
 		68C66E206958085A7FB5854A /* markdown_parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 37C21589DF7247DCA0DEF159 /* markdown_parser.c */; };
-		A15826616AD952C57CD454C6 /* markdown_output.c in Sources */ = {isa = PBXBuildFile; fileRef = 305486741926922646A5B649 /* markdown_output.c */; };
 		E70760725822EC62E923ABBD /* GLibFacade.c in Sources */ = {isa = PBXBuildFile; fileRef = 93BFA7AC4C211049270124A2 /* GLibFacade.c */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +42,6 @@
 		074521A6FFF2C40579B53C26 /* GLibFacade.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLibFacade.h; sourceTree = "<group>"; };
 		18A4AD811F734E71FE99A0F2 /* markdown_lib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = markdown_lib.h; sourceTree = "<group>"; };
 		2564D59B0944383BDF6FB805 /* markdown-json.gyp */ = {isa = PBXFileReference; lastKnownFileType = text; path = "markdown-json.gyp"; sourceTree = "<group>"; };
-		305486741926922646A5B649 /* markdown_output.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = markdown_output.c; sourceTree = "<group>"; };
 		37C21589DF7247DCA0DEF159 /* markdown_parser.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = markdown_parser.c; sourceTree = "<group>"; };
 		47095DF9BC81671695F480AB /* parsing_functions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = parsing_functions.h; sourceTree = "<group>"; };
 		63D72140E86706FFC1EDC204 /* markdown_json.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = markdown_json.h; sourceTree = "<group>"; };
@@ -88,7 +86,6 @@
 				63D72140E86706FFC1EDC204 /* markdown_json.h */,
 				99063D35BB564FCD4C824D4A /* markdown_lib.c */,
 				18A4AD811F734E71FE99A0F2 /* markdown_lib.h */,
-				305486741926922646A5B649 /* markdown_output.c */,
 				37C21589DF7247DCA0DEF159 /* markdown_parser.c */,
 				8FEE28F6B0C0DA5D6D62E57F /* markdown_parser.leg */,
 				70E4CED09A14FAD97C1A8EDE /* markdown_peg.h */,
@@ -183,7 +180,6 @@
 			files = (
 				2A857A4EFCE548616EFED015 /* markdown.c in Sources */,
 				68C66E206958085A7FB5854A /* markdown_parser.c in Sources */,
-				A15826616AD952C57CD454C6 /* markdown_output.c in Sources */,
 				04417C74310B361DA6EC0D25 /* markdown_lib.c in Sources */,
 				E70760725822EC62E923ABBD /* GLibFacade.c in Sources */,
 				50630B4BA320EC5E6C85F16F /* markdown_json.c in Sources */,
