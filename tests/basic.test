@@ -1,4 +1,4 @@
-markdown-json
+../markdown-json
 <<<
 Plain text.
 
@@ -6,7 +6,7 @@ Header
 ------
 * item 1
 * item 2
->>>
+>>>JSON
 ["text",
   ["para", "Plain text."],
   ["heading", "Header"],
