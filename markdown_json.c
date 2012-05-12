@@ -116,6 +116,11 @@ void print_json_inline_element(GString *out, element *elt) {
         print_json_quoted_string(out, "strong");
         print_json_literal_elements(out, elt->children);
         break;
+    case CODE:
+        print_json_quoted_string(out, "code");
+        g_string_append_printf(out, ",");
+        print_json_quoted_string(out, elt->contents.str);
+        break;
 
     case LINK:
         print_json_quoted_string(out, "link");

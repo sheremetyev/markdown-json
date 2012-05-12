@@ -3,6 +3,8 @@
 Lists [in] text.
 
 Nested ***inlines***.
+
+Inline `code` span.
 >>>JSON
 ["text",
   ["para", { "level": 0 },
@@ -12,5 +14,10 @@ Nested ***inlines***.
     ["plain", "Nested "],
     ["strong", "inlines"],
     ["plain", "."]
+  ],
+  ["para", { "level": 0 },
+    ["plain", "Inline "],
+    ["code", "code"],
+    ["plain", " span."]
   ]
 ]
