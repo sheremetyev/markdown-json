@@ -8,7 +8,6 @@
         'glib.h',
         'markdown.c',
         'markdown_parser.c',
-        'markdown_output.c',
         'markdown_lib.h',
         'markdown_lib.c',
         'GLibFacade.h',
