@@ -4,12 +4,28 @@ Plain text.
 
 Header
 ------
-* item 1
-* item 2
+  
+  * item 1
+
+    second paragraph
+
+  * item 2
+
 >>>JSON
 ["text",
-  ["para", "Plain text."],
-  ["heading", "Header"],
-  ["para", "item 1"],
-  ["para", "item 2"]
+  ["para", { "level": 0 },
+    ["plain", "Plain text."]
+  ],
+  ["heading", { "level": 2 },
+    ["plain", "Header"]
+  ],
+  ["item", { "level": 1 },
+    ["plain", "item 1"]
+  ],
+  ["para", { "level": 1 },
+    ["plain", "second paragraph"]
+  ],
+  ["item", { "level": 1 },
+    ["plain", "item 2"]
+  ]
 ]

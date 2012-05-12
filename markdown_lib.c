@@ -20,6 +20,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "markdown_peg.h"
+#include "markdown_json.h"
 
 #define TABSTOP 4
 
@@ -164,7 +165,9 @@ GString * markdown_to_g_string(char *text, int extensions) {
 
     g_string_free(formatted_text, TRUE);
 
-    print_element_list(out, result, extensions);
+    print_tree(result, 0);
+
+    print_json_tree(out, result);
 
     free_element_list(result);
 
