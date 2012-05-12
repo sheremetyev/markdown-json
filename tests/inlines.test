@@ -1,0 +1,9 @@
+../markdown-json
+<<<
+Lists [in] text.
+>>>JSON
+["text",
+  ["para", { "level": 0 },
+    ["plain", "Lists [in] text."]
+  ]
+]

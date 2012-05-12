@@ -70,6 +70,11 @@ void print_json_literal_element(GString *out, element *elt) {
         g_string_append_printf(out, "\\\"");
         break;
 
+    /* transparent grouping elements */
+    case LIST:
+        print_json_literal_element_list(out, elt->children);
+        break;
+
     case RAW:
         /* Shouldn't occur - these are handled by process_raw_blocks() */
         assert(elt->key != RAW);
@@ -93,6 +98,8 @@ void print_json_literal_elements(GString *out, element *list) {
     g_string_append_printf(out, "\"");
 }
 
+void print_json_inline_element_list(GString *out, element *list);
+
 void print_json_inline_element(GString *out, element *elt) {
     switch (elt->key) {
     case EMPH:
@@ -104,6 +111,11 @@ void print_json_inline_element(GString *out, element *elt) {
         print_json_literal_elements(out, elt->children);
         break;
 
+    /* transparent grouping elements */
+    case LIST:
+        print_json_inline_element_list(out, elt->children);
+        break;
+
     case RAW:
         /* Shouldn't occur - these are handled by process_raw_blocks() */
         assert(elt->key != RAW);
@@ -111,6 +123,13 @@ void print_json_inline_element(GString *out, element *elt) {
     default: 
         fprintf(stderr, "unexpected inline element key = %d\n", elt->key); 
         exit(EXIT_FAILURE);
+    }
+}
+
+void print_json_inline_element_list(GString *out, element *list) {
+    while (list != NULL) {
+        print_json_inline_element(out, list);
+        list = list->next;
     }
 }
 
@@ -125,6 +144,8 @@ bool is_literal_element(element *elt) {
     case APOSTROPHE:
     case SINGLEQUOTED:
     case DOUBLEQUOTED:
+        return true;
+    case LIST:
         return true;
     default:
         return false;
