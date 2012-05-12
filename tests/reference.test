@@ -1,0 +1,14 @@
+../markdown-json
+<<<
+Reference [link].
+
+[link]: defined.
+>>>JSON
+["text",
+  ["para", { "level": 0 },
+    ["plain", "Reference "],
+    ["link", "link"],
+    ["url", "defined."],
+    ["plain", "."]
+  ]
+]

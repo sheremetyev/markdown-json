@@ -275,8 +275,11 @@ void print_json_block_element(GString *out, element *elt, int level, bool first)
         print_json_block_element_list(out, elt->children, level + 1);
         break;
 
-    /* not implemented elements - ignored */
+    /* link definition is substituted at the usage point - so we ignore it */
     case REFERENCE:
+        break;
+
+    /* not implemented elements - ignored */
     case DEFLIST:
     case BLOCKQUOTE:
     case NOTE:
