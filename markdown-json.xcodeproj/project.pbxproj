@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -139,10 +139,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 0450;
 			};
 			buildConfigurationList = 691EDE0E1A6BF5DFF988D084 /* Build configuration list for PBXProject "markdown-json" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 57FB01A3098C1CCB1A4795D5;
 			projectDirPath = "";
 			projectRoot = "";
@@ -216,6 +221,7 @@
 		744149F3911A39A79F9E2927 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				PRODUCT_NAME = "markdown-json Support";
 			};
 			name = Debug;
@@ -232,6 +238,7 @@
 		BE8F761941F774A2AD886BB9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				PRODUCT_NAME = "markdown-json Support";
 			};
 			name = Release;
