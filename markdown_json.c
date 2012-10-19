@@ -14,43 +14,13 @@
 // we return constant strings only
 char* key_name(int key) {
   switch (key) {
-    case LIST:               return "LIST";
-    case RAW:                return "RAW";
-    case SPACE:              return "SPACE";
-    case LINEBREAK:          return "LINEBREAK";
-    case ELLIPSIS:           return "ELLIPSIS";
-    case EMDASH:             return "EMDASH";
-    case ENDASH:             return "ENDASH";
-    case APOSTROPHE:         return "APOSTROPHE";
-    case SINGLEQUOTED:       return "SINGLEQUOTED";
-    case DOUBLEQUOTED:       return "DOUBLEQUOTED";
-    case STR:                return "STR";
-    case LINK:               return "LINK";
-    case IMAGE:              return "IMAGE";
-    case CODE:               return "CODE";
-    case HTML:               return "HTML";
-    case EMPH:               return "EMPH";
-    case STRONG:             return "STRONG";
-    case PLAIN:              return "PLAIN";
-    case PARA:               return "PARA";
-    case LISTITEM:           return "LISTITEM";
-    case BULLETLIST:         return "BULLETLIST";
-    case ORDEREDLIST:        return "ORDEREDLIST";
-    case H1:                 return "H1";
-    case H2:                 return "H2";
-    case H3:                 return "H3";
-    case H4:                 return "H4";
-    case H5:                 return "H5";
-    case H6:                 return "H6";
-    case BLOCKQUOTE:         return "BLOCKQUOTE";
-    case VERBATIM:           return "VERBATIM";
-    case HTMLBLOCK:          return "HTMLBLOCK";
-    case HRULE:              return "HRULE";
-    case REFERENCE:          return "REFERENCE";
-    case NOTE:               return "NOTE";
-    case DEFLIST:            return "DEFLIST";
-    default:                 return "?";
-  }  
+
+    #define KEY_CASE(name) case name: return #name;
+    ELEMENT_LIST(KEY_CASE)
+    #undef KEY_CASE
+
+    default: return "?";
+  }
 }
 
 void print_json_list(GString *out, element *elt, int indent);

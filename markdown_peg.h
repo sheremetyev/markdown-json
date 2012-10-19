@@ -27,65 +27,71 @@ union Contents {
 };
 
 /* Types of semantic values returned by parsers. */ 
-enum keys { LIST,   /* A generic list of values.  For ordered and bullet lists, see below. */
-            RAW,    /* Raw markdown to be processed further */
-            SPACE,
-            LINEBREAK,
-            ELLIPSIS,
-            EMDASH,
-            ENDASH,
-            APOSTROPHE,
-            SINGLEQUOTED,
-            DOUBLEQUOTED,
-            STR,
-            LINK,
-            IMAGE,
-            IMAGEBLOCK,
-            CODE,
-            HTML,
-            EMPH,
-            STRONG,
-            PLAIN,
-            PARA,
-            LISTITEM,
-            BULLETLIST,
-            ORDEREDLIST,
-            H1, H2, H3, H4, H5, H6, H7, /* Code assumes that these are in order. */
-            BLOCKQUOTE,
-            VERBATIM,
-            HTMLBLOCK,
-            HRULE,
-            REFERENCE,
-            NOTE,
-            CITATION,
-            NOCITATION,
-            LOCATOR,
-            NOTELABEL,
-            DEFLIST,
-            TERM,
-            DEFINITION,
-            FOOTER,
-            LABEL,
-            HEADINGSECTION,
-            ENDHTML,
-            TABLE,
-            TABLEHEAD,
-            TABLEBODY,
-            TABLEROW,
-            TABLECELL,
-            CELLSPAN,
-            TABLECAPTION,
-            TABLELABEL,
-            TABLESEPARATOR,
-            AUTOLABEL,
-            ATTRIBUTE,
-            ATTRKEY,
-            ATTRVALUE,
-            GLOSSARY,
-            GLOSSARYTERM,
-            GLOSSARYSORTKEY,
-            MATHSPAN
-          };
+#define ELEMENT_LIST(V)                                                        \
+  V(LIST)                                                                      \
+  V(RAW)                                                                       \
+  V(SPACE)                                                                     \
+  V(LINEBREAK)                                                                 \
+  V(ELLIPSIS)                                                                  \
+  V(EMDASH)                                                                    \
+  V(ENDASH)                                                                    \
+  V(APOSTROPHE)                                                                \
+  V(SINGLEQUOTED)                                                              \
+  V(DOUBLEQUOTED)                                                              \
+  V(STR)                                                                       \
+  V(LINK)                                                                      \
+  V(IMAGE)                                                                     \
+  V(IMAGEBLOCK)                                                                \
+  V(CODE)                                                                      \
+  V(HTML)                                                                      \
+  V(EMPH)                                                                      \
+  V(STRONG)                                                                    \
+  V(PLAIN)                                                                     \
+  V(PARA)                                                                      \
+  V(LISTITEM)                                                                  \
+  V(BULLETLIST)                                                                \
+  V(ORDEREDLIST)                                                               \
+  V(H1) V(H2) V(H3) V(H4) V(H5) V(H6) V(H7)                                    \
+  V(BLOCKQUOTE)                                                                \
+  V(VERBATIM)                                                                  \
+  V(HTMLBLOCK)                                                                 \
+  V(HRULE)                                                                     \
+  V(REFERENCE)                                                                 \
+  V(NOTE)                                                                      \
+  V(CITATION)                                                                  \
+  V(NOCITATION)                                                                \
+  V(LOCATOR)                                                                   \
+  V(NOTELABEL)                                                                 \
+  V(DEFLIST)                                                                   \
+  V(TERM)                                                                      \
+  V(DEFINITION)                                                                \
+  V(FOOTER)                                                                    \
+  V(LABEL)                                                                     \
+  V(HEADINGSECTION)                                                            \
+  V(ENDHTML)                                                                   \
+  V(TABLE)                                                                     \
+  V(TABLEHEAD)                                                                 \
+  V(TABLEBODY)                                                                 \
+  V(TABLEROW)                                                                  \
+  V(TABLECELL)                                                                 \
+  V(CELLSPAN)                                                                  \
+  V(TABLECAPTION)                                                              \
+  V(TABLELABEL)                                                                \
+  V(TABLESEPARATOR)                                                            \
+  V(AUTOLABEL)                                                                 \
+  V(ATTRIBUTE)                                                                 \
+  V(ATTRKEY)                                                                   \
+  V(ATTRVALUE)                                                                 \
+  V(GLOSSARY)                                                                  \
+  V(GLOSSARYTERM)                                                              \
+  V(GLOSSARYSORTKEY)                                                           \
+  V(MATHSPAN)                                                                  \
+
+enum keys {
+  #define KEY_DECLARATION(name) name,
+  ELEMENT_LIST(KEY_DECLARATION)
+  #undef KEY_DECLARATION
+};
 
 /* constants for managing Smart Typography */
 enum smartelements {
