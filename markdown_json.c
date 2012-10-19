@@ -11,48 +11,52 @@
 #include <assert.h>
 #include "markdown_json.h"
 
+// we return constant strings only
+char* key_name(int key) {
+  switch (key) {
+    case LIST:               return "LIST";
+    case RAW:                return "RAW";
+    case SPACE:              return "SPACE";
+    case LINEBREAK:          return "LINEBREAK";
+    case ELLIPSIS:           return "ELLIPSIS";
+    case EMDASH:             return "EMDASH";
+    case ENDASH:             return "ENDASH";
+    case APOSTROPHE:         return "APOSTROPHE";
+    case SINGLEQUOTED:       return "SINGLEQUOTED";
+    case DOUBLEQUOTED:       return "DOUBLEQUOTED";
+    case STR:                return "STR";
+    case LINK:               return "LINK";
+    case IMAGE:              return "IMAGE";
+    case CODE:               return "CODE";
+    case HTML:               return "HTML";
+    case EMPH:               return "EMPH";
+    case STRONG:             return "STRONG";
+    case PLAIN:              return "PLAIN";
+    case PARA:               return "PARA";
+    case LISTITEM:           return "LISTITEM";
+    case BULLETLIST:         return "BULLETLIST";
+    case ORDEREDLIST:        return "ORDEREDLIST";
+    case H1:                 return "H1";
+    case H2:                 return "H2";
+    case H3:                 return "H3";
+    case H4:                 return "H4";
+    case H5:                 return "H5";
+    case H6:                 return "H6";
+    case BLOCKQUOTE:         return "BLOCKQUOTE";
+    case VERBATIM:           return "VERBATIM";
+    case HTMLBLOCK:          return "HTMLBLOCK";
+    case HRULE:              return "HRULE";
+    case REFERENCE:          return "REFERENCE";
+    case NOTE:               return "NOTE";
+    case DEFLIST:            return "DEFLIST";
+    default:                 return "?";
+  }  
+}
+
 void print_json_list(GString *out, element *elt, int indent);
 
 void print_json_element(GString *out, element *elt, int indent) {
-  char * key;
-  switch (elt->key) {
-    case LIST:               key = "LIST"; break;
-    case RAW:                key = "RAW"; break;
-    case SPACE:              key = "SPACE"; break;
-    case LINEBREAK:          key = "LINEBREAK"; break;
-    case ELLIPSIS:           key = "ELLIPSIS"; break;
-    case EMDASH:             key = "EMDASH"; break;
-    case ENDASH:             key = "ENDASH"; break;
-    case APOSTROPHE:         key = "APOSTROPHE"; break;
-    case SINGLEQUOTED:       key = "SINGLEQUOTED"; break;
-    case DOUBLEQUOTED:       key = "DOUBLEQUOTED"; break;
-    case STR:                key = "STR"; break;
-    case LINK:               key = "LINK"; break;
-    case IMAGE:              key = "IMAGE"; break;
-    case CODE:               key = "CODE"; break;
-    case HTML:               key = "HTML"; break;
-    case EMPH:               key = "EMPH"; break;
-    case STRONG:             key = "STRONG"; break;
-    case PLAIN:              key = "PLAIN"; break;
-    case PARA:               key = "PARA"; break;
-    case LISTITEM:           key = "LISTITEM"; break;
-    case BULLETLIST:         key = "BULLETLIST"; break;
-    case ORDEREDLIST:        key = "ORDEREDLIST"; break;
-    case H1:                 key = "H1"; break;
-    case H2:                 key = "H2"; break;
-    case H3:                 key = "H3"; break;
-    case H4:                 key = "H4"; break;
-    case H5:                 key = "H5"; break;
-    case H6:                 key = "H6"; break;
-    case BLOCKQUOTE:         key = "BLOCKQUOTE"; break;
-    case VERBATIM:           key = "VERBATIM"; break;
-    case HTMLBLOCK:          key = "HTMLBLOCK"; break;
-    case HRULE:              key = "HRULE"; break;
-    case REFERENCE:          key = "REFERENCE"; break;
-    case NOTE:               key = "NOTE"; break;
-    case DEFLIST:            key = "DEFLIST"; break;
-    default:                 key = "?";
-  }
+  char * key = key_name(elt->key);
   for (int i = 0; i < indent; i++)
     g_string_append_printf(out, " ");
   if ( elt->key == STR ) {
