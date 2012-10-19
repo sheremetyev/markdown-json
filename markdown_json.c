@@ -11,12 +11,10 @@
 #include <assert.h>
 #include "markdown_json.h"
 
-void print_json_tree_recusive(GString *out, element *elt, int indent) {
-  int i;
+void print_json_list(GString *out, element *elt, int indent);
+
+void print_json_element(GString *out, element *elt, int indent) {
   char * key;
-  while (elt != NULL) {
-    for (i = 0; i < indent; i++)
-      g_string_append_printf(out, " ");
     switch (elt->key) {
       case LIST:               key = "LIST"; break;
       case RAW:                key = "RAW"; break;
@@ -55,17 +53,24 @@ void print_json_tree_recusive(GString *out, element *elt, int indent) {
       case DEFLIST:            key = "DEFLIST"; break;
       default:                 key = "?";
     }
+    for (int i = 0; i < indent; i++)
+      g_string_append_printf(out, " ");
     if ( elt->key == STR ) {
       g_string_append_printf(out, "%p: %s   '%s'\n", elt, key, elt->contents.str);
     } else {
       g_string_append_printf(out, "%p: %s\n", elt, key);
     }
     if (elt->children)
-      print_json_tree_recusive(out, elt->children, indent + 4);
+      print_json_list(out, elt->children, indent + 4);
+}
+
+void print_json_list(GString *out, element *elt, int indent) {
+  while (elt != NULL) {
+    print_json_element(out, elt, indent);
     elt = elt->next;
   }
 }
 
 void print_json_tree(GString *out, element *root) {
-  print_json_tree_recusive(out, root, 0);
+  print_json_list(out, root, 0);
 }
