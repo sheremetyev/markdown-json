@@ -55,62 +55,6 @@ static GString *preformat_text(char *text) {
     return(buf);
 }
 
-/* print_tree - print tree of elements, for debugging only. */
-static void print_tree(element * elt, int indent) {
-    int i;
-    char * key;
-    while (elt != NULL) {
-        for (i = 0; i < indent; i++)
-            fputc(' ', stderr);
-        switch (elt->key) {
-            case LIST:               key = "LIST"; break;
-            case RAW:                key = "RAW"; break;
-            case SPACE:              key = "SPACE"; break;
-            case LINEBREAK:          key = "LINEBREAK"; break;
-            case ELLIPSIS:           key = "ELLIPSIS"; break;
-            case EMDASH:             key = "EMDASH"; break;
-            case ENDASH:             key = "ENDASH"; break;
-            case APOSTROPHE:         key = "APOSTROPHE"; break;
-            case SINGLEQUOTED:       key = "SINGLEQUOTED"; break;
-            case DOUBLEQUOTED:       key = "DOUBLEQUOTED"; break;
-            case STR:                key = "STR"; break;
-            case LINK:               key = "LINK"; break;
-            case IMAGE:              key = "IMAGE"; break;
-            case CODE:               key = "CODE"; break;
-            case HTML:               key = "HTML"; break;
-            case EMPH:               key = "EMPH"; break;
-            case STRONG:             key = "STRONG"; break;
-            case PLAIN:              key = "PLAIN"; break;
-            case PARA:               key = "PARA"; break;
-            case LISTITEM:           key = "LISTITEM"; break;
-            case BULLETLIST:         key = "BULLETLIST"; break;
-            case ORDEREDLIST:        key = "ORDEREDLIST"; break;
-            case H1:                 key = "H1"; break;
-            case H2:                 key = "H2"; break;
-            case H3:                 key = "H3"; break;
-            case H4:                 key = "H4"; break;
-            case H5:                 key = "H5"; break;
-            case H6:                 key = "H6"; break;
-            case BLOCKQUOTE:         key = "BLOCKQUOTE"; break;
-            case VERBATIM:           key = "VERBATIM"; break;
-            case HTMLBLOCK:          key = "HTMLBLOCK"; break;
-            case HRULE:              key = "HRULE"; break;
-            case REFERENCE:          key = "REFERENCE"; break;
-            case NOTE:               key = "NOTE"; break;
-            case DEFLIST:            key = "DEFLIST"; break;
-            default:                 key = "?";
-        }
-        if ( elt->key == STR ) {
-            fprintf(stderr, "%p: %s   '%s'\n", elt, key, elt->contents.str);
-        } else {
-            fprintf(stderr, "%p: %s\n", elt, key);
-        }
-        if (elt->children)
-            print_tree(elt->children, indent + 4);
-        elt = elt->next;
-    }
-}
-
 /* process_raw_blocks - traverses an element list, replacing any RAW elements with
  * the result of parsing them as markdown text, and recursing into the children
  * of parent elements.  The result should be a tree of elements without any RAWs. */
@@ -165,8 +109,6 @@ GString * markdown_to_g_string(char *text, int extensions) {
     result = process_raw_blocks(result, extensions, references, notes, labels);
 
     g_string_free(formatted_text, TRUE);
-
-    print_tree(result, 0);
 
     print_json_tree(out, result);
 
