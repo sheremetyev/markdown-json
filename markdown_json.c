@@ -30,21 +30,29 @@ void print_json_element(GString *out, element *elt, int indent) {
   for (int i = 0; i < indent; i++)
     g_string_append_printf(out, " ");
   if ( elt->key == STR ) {
-    g_string_append_printf(out, "%p: %s   '%s'\n", elt, key, elt->contents.str);
+    g_string_append_printf(out, "[\"%s\", \"%s\"]", key, elt->contents.str);
   } else {
-    g_string_append_printf(out, "%p: %s\n", elt, key);
+    g_string_append_printf(out, "[\"%s\"", key);
+    if (elt->children) {
+      print_json_list(out, elt->children, indent + 4);
+      g_string_append_printf(out, "\n");
+      for (int i = 0; i < indent; i++)
+        g_string_append_printf(out, " ");
+    }
+    g_string_append_printf(out, "]", key);
   }
-  if (elt->children)
-    print_json_list(out, elt->children, indent + 4);
 }
 
 void print_json_list(GString *out, element *elt, int indent) {
   while (elt != NULL) {
+    g_string_append_printf(out, ",\n");
     print_json_element(out, elt, indent);
     elt = elt->next;
   }
 }
 
 void print_json_tree(GString *out, element *root) {
-  print_json_list(out, root, 0);
+  g_string_append_printf(out, "[\"MARKDOWN\"");
+  print_json_list(out, root, 4);
+  g_string_append_printf(out, "\n]\n");
 }
