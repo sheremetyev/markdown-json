@@ -67,8 +67,10 @@ void print_json_element(GString *out, element *elt, int indent) {
 
 void print_json_list(GString *out, element *elt, int indent) {
   while (elt != NULL) {
-    g_string_append_printf(out, ",\n");
-    print_json_element(out, elt, indent);
+    if (elt->key != NOTELABEL && elt->key != REFERENCE) {
+      g_string_append_printf(out, ",\n");
+      print_json_element(out, elt, indent);
+    }
     elt = elt->next;
   }
 }
