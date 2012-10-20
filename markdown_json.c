@@ -55,7 +55,7 @@ void print_json_element(GString *out, element *elt, int indent) {
     for (i = 0; i < indent; i++)
       g_string_append_printf(out, " ");
     g_string_append_printf(out, "]");
-  } else if ( elt->contents.str != NULL && elt->key != NOTE) {
+  } else if ( elt->contents.str != NULL ) {
     g_string_append_printf(out, "[\"%s\", \"", key);
     print_json_string(out, elt->contents.str);
     g_string_append_printf(out, "\"]");
