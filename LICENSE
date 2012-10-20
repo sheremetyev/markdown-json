@@ -2,7 +2,7 @@ License Agreement
 =================
 
 markdown-json
-portions Copyright (c) 2012 Fyodor Sheremetyev, licensed explicitly MIT.
+portions Copyright (c) 2012 Fedor Sheremetyev, licensed explicitly MIT.
 
 based on:
 markdown in c, implemented using PEG grammar

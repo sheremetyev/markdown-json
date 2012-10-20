@@ -3,7 +3,7 @@
   markdown.c - markdown in C using a PEG grammar.
   (c) 2008 John MacFarlane (jgm at berkeley dot edu).
   
-  portions Copyright (c) 2012 Fyodor Sheremetyev
+  portions Copyright (c) 2012 Fedor Sheremetyev
   portions Copyright (c) 2010-2011 Fletcher T. Penney
   portions Copyright (c) 2011 Daniel Jalkut
   
@@ -39,7 +39,7 @@ static int extensions;
  ***********************************************************************/
 
 #define VERSION "0.0.1"
-#define COPYRIGHT "portions Copyright (c) 2012 Fyodor Sheremetyev, MIT licensed.\n" \
+#define COPYRIGHT "portions Copyright (c) 2012 Fedor Sheremetyev, MIT licensed.\n" \
                   "portions Copyright (c) 2010-2012 Fletcher T. Penney.\n" \
                   "portions Copyright (c) 2011 Daniel Jalkut, MIT licensed.\n" \
                   "original Copyright (c) 2008-2009 John MacFarlane.  License GPLv2+ or MIT.\n" \

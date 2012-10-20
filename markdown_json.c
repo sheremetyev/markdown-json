@@ -1,7 +1,7 @@
 /**********************************************************************
 
   markdown_json.c - JSON output for Markdown parser.
-  Copyright (c) 2012 Fyodor Sheremetyev
+  Copyright (c) 2012 Fedor Sheremetyev
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the MIT license. See LICENSE for details.
