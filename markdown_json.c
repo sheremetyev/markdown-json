@@ -1,6 +1,6 @@
 /**********************************************************************
 
-  markdown_json.c - TextJSON output for Markdown parser.
+  markdown_json.c - JSON output for Markdown parser.
   Copyright (c) 2012 Fyodor Sheremetyev
 
   This program is free software; you can redistribute it and/or modify
