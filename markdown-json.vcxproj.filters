@@ -17,7 +17,6 @@
     <ClInclude Include="utility_functions.h" />
     <ClInclude Include="markdown_peg.h" />
     <None Include="markdown-json.gyp" />
-    <ClCompile Include="markdown_output.c" />
     <ClInclude Include="markdown_lib.h" />
     <ClCompile Include="GLibFacade.c" />
     <ClCompile Include="markdown_lib.c" />
