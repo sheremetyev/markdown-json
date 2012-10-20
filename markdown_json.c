@@ -46,7 +46,9 @@ void print_json_element(GString *out, element *elt, int indent) {
   for (int i = 0; i < indent; i++)
     g_string_append_printf(out, " ");
   if ( elt->key == LINK || elt->key == IMAGE || elt->key == IMAGEBLOCK ) {
-    g_string_append_printf(out, "[\"%s\", \"%s\"]", key, elt->contents.link->url);
+    g_string_append_printf(out, "[\"%s\", \"", key);
+    print_json_string(out, elt->contents.link->url);
+    g_string_append_printf(out, "\"]");
   } else if ( elt->key == STR ) {
     g_string_append_printf(out, "[\"%s\", \"", key);
     print_json_string(out, elt->contents.str);
