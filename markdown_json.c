@@ -42,8 +42,9 @@ char* key_name(int key) {
 void print_json_list(GString *out, element *elt, int indent);
 
 void print_json_element(GString *out, element *elt, int indent) {
+  int i;
   char * key = key_name(elt->key);
-  for (int i = 0; i < indent; i++)
+  for (i = 0; i < indent; i++)
     g_string_append_printf(out, " ");
   if ( elt->key == LINK || elt->key == IMAGE || elt->key == IMAGEBLOCK ) {
     g_string_append_printf(out, "[\"%s\", \"", key);
@@ -59,7 +60,7 @@ void print_json_element(GString *out, element *elt, int indent) {
     if (elt->children) {
       print_json_list(out, elt->children, indent + 4);
       g_string_append_printf(out, "\n");
-      for (int i = 0; i < indent; i++)
+      for (i = 0; i < indent; i++)
         g_string_append_printf(out, " ");
     }
     g_string_append_printf(out, "]", key);
