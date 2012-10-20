@@ -49,10 +49,11 @@ void print_json_element(GString *out, element *elt, int indent) {
     g_string_append_printf(out, "[\"%s\", \"", key);
     print_json_string(out, elt->contents.link->url);
     g_string_append_printf(out, "\"]");
-  } else if ( elt->key == STR ) {
+  } else if ( elt->contents.str != NULL && elt->key != NOTE) {
     g_string_append_printf(out, "[\"%s\", \"", key);
     print_json_string(out, elt->contents.str);
     g_string_append_printf(out, "\"]");
+    assert(elt->children == NULL);
   } else {
     g_string_append_printf(out, "[\"%s\"", key);
     if (elt->children) {
