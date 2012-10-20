@@ -11,6 +11,22 @@
 #include <assert.h>
 #include "markdown_json.h"
 
+void print_json_string(GString *out, char* str) {
+  while (*str != '\0') {
+    switch (*str) {
+      case '"':
+        g_string_append_printf(out, "\\\"");
+        break;
+      case '\n':
+        g_string_append_printf(out, "\\n");
+        break;
+      default:
+        g_string_append_c(out, *str);
+    }
+    str++;
+  }  
+}
+
 // we return constant strings only
 char* key_name(int key) {
   switch (key) {
@@ -32,7 +48,9 @@ void print_json_element(GString *out, element *elt, int indent) {
   if ( elt->key == LINK || elt->key == IMAGE || elt->key == IMAGEBLOCK ) {
     g_string_append_printf(out, "[\"%s\", \"%s\"]", key, elt->contents.link->url);
   } else if ( elt->key == STR ) {
-    g_string_append_printf(out, "[\"%s\", \"%s\"]", key, elt->contents.str);
+    g_string_append_printf(out, "[\"%s\", \"", key);
+    print_json_string(out, elt->contents.str);
+    g_string_append_printf(out, "\"]");
   } else {
     g_string_append_printf(out, "[\"%s\"", key);
     if (elt->children) {
