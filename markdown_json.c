@@ -17,8 +17,14 @@ void print_json_string(GString *out, char* str) {
       case '"':
         g_string_append_printf(out, "\\\"");
         break;
+      case '\\':
+        g_string_append_printf(out, "\\\\");
+        break;
       case '\n':
         g_string_append_printf(out, "\\n");
+        break;
+      case '\r':
+        g_string_append_printf(out, "\\r");
         break;
       default:
         g_string_append_c(out, *str);
