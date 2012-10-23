@@ -207,6 +207,7 @@
 			buildSettings = {
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INTERMEDIATE_DIR = "$(PROJECT_DERIVED_FILE_DIR)/$(CONFIGURATION)";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SHARED_INTERMEDIATE_DIR = "$(SYMROOT)/DerivedSources/$(CONFIGURATION)";
 			};
 			name = Debug;
@@ -215,6 +216,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INTERMEDIATE_DIR = "$(PROJECT_DERIVED_FILE_DIR)/$(CONFIGURATION)";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SHARED_INTERMEDIATE_DIR = "$(SYMROOT)/DerivedSources/$(CONFIGURATION)";
 			};
 			name = Release;
